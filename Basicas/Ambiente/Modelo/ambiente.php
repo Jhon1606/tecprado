@@ -25,7 +25,10 @@ class ambiente extends conexion{
   
     public function get(){
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT * FROM ubicacion");
+        $statement=$this->conexion->prepare("SELECT a.id, a.codigo, a.descripcion, b.descripcion as complejo, c.descripcion as tipoubicacion
+                                             FROM ubicacion AS a
+                                             INNER JOIN centros_costos AS b ON a.centro_costo = b.codigo
+                                             INNER JOIN tipo_ubicacion AS c ON a.tipo_ubicacion = c.id");
         $statement->execute();
         while($result=$statement->fetch()){
             $rows[]=$result;
