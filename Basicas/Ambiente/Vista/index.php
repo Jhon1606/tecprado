@@ -1,8 +1,13 @@
+<?php
+    require_once('../Modelo/ambiente.php');
+
+    $modeloAmbiente= new ambiente();
+    $ambientes = $modeloAmbiente->get();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,11 +15,12 @@
     <meta name="author" content="">
 
     <title>Ambiente</title>
-    <link rel="stylesheet" href="Bootstrap/css/style.css">
-    <link href="Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script>
+    <link rel="stylesheet" href="../../../Bootstrap/css/style.css">
+    <link href="../../../Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="Bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../../Bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -348,8 +354,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="Bootstrap/img/undraw_profile_1.svg"
-                                            alt="...">
+                                        <!-- <img class="rounded-circle" src="../../../Bootstrap/img/undraw_profile_1.svg"
+                                            alt="..."> -->
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -372,7 +378,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="Bootstrap/img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="../../../Bootstrap/img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -406,7 +412,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="Bootstrap/img/undraw_profile.svg">
+                                    src="../../../Bootstrap/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -438,51 +444,47 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h2>Ambientes</h2>
+                    <h2>Complejos</h2>
                     <div class="col p-2">
-                        <a href="Javascript:void()" onclick="modalAñadir()"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Ambiente </button></a> 
+                        <a href="Javascript:void()" onclick="modalAñadir()"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Complejo </button></a> 
                     </div>
-                
+
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">Codigo</th>
-                                    <th scope="col">Descripción del ambiente</th> 
-                                    <th scope="col">Complejo</th> 
-                                    <th scope="col">Tipo de ambiente</th> 
+                                    <th scope="col">Descripción</th> 
                                     <th scope="col" style="text-align:right"></th> 
                                 </tr>
                             </thead>
 
                             <tbody>
+                            <?php         
+                                if($complejos != null){ 
+                                    foreach($complejos as $complejo){
+                            ?>
                                 <tr>
-                                    <th>01</th>
-                                    <td>Extrusión</td>
-                                    <td>Planta principal</td>
-                                    <td>Areas locativas</td>
+                                    <th><?php echo $complejo['codigo']; ?></th>
+                                    <td><?php echo $complejo['descripcion']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="Javascript:void()" onclick="modalEditar()"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="Javascript:void()" onclick="modalEliminar()"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="Javascript:void()" onclick="modalEditar(<?php echo $complejo['codigo']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="Javascript:void()" onclick="modalEliminar(<?php echo $complejo['codigo']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>02</th>
-                                    <td>Flexografia</td>
-                                    <td>Planta principal</td>
-                                    <td>Areas locativas</td>
-                                    <td style="text-align:right;">
-                                        <a href="Javascript:void()" onclick="modalEditar()"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="Javascript:void()" onclick="modalEliminar()"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
-                                    </td>
-                                </tr>
+                            <?php
+                                    }
+                                }
+                            ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
+                
                 <!-- /.container-fluid -->
-
+                
             </div>
+           
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -526,22 +528,36 @@
         </div>
     </div>
 
+    <?php
+        require_once('add.php');
+    ?>
+
+    <?php
+        require_once('edit.php');
+    ?>
+
+    <?php
+        require_once('delete.php');
+    ?>
+
     <!-- Bootstrap core JavaScript-->
-    <script src="Bootstrap/vendor/jquery/jquery.min.js"></script>
-    <script src="Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../Bootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="Bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../../Bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="Bootstrap/js/sb-admin-2.min.js"></script>
+    <script src="../../../Bootstrap/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="Bootstrap/vendor/chart.js/Chart.min.js"></script>
+    <script src="../../../Bootstrap/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="Bootstrap/js/demo/chart-area-demo.js"></script>
-    <script src="Bootstrap/js/demo/chart-pie-demo.js"></script>
+    <script src="../../../Bootstrap/js/demo/chart-area-demo.js"></script>
+    <script src="../../../Bootstrap/js/demo/chart-pie-demo.js"></script>
+
+    <script src="../../../Bootstrap/js/javascript.js"></script>
 
 </body>
 
