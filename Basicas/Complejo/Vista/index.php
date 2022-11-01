@@ -366,7 +366,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="../../../Bootstrap/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -446,7 +446,7 @@
                 <div class="container-fluid">
                     <h2>Complejos</h2>
                     <div class="col p-2">
-                        <a href="Javascript:void()" onclick="modalAñadir()"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Complejo </button></a> 
+                        <a href="Javascript:void()" onclick="modalAgregar('Complejo')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Complejo </button></a> 
                     </div>
 
                     <div class="table-responsive">

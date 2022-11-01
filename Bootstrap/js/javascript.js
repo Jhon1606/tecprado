@@ -1,13 +1,14 @@
-function modalAñadir(){
-    $('#myModal').modal('show');
+function modalAgregar(pagina){
+    $('#myModal' + pagina).modal('show');
 }
+
 
 function modalEditar(codigo){
 
     alert(codigo);
 
     $.ajax({
-        url: "../../../General/Queries/infocomplejo.php",
+        url: "../../General/Queries/infocomplejo.php",
         type: "POST",
         dataType: "JSON",
         data: {codigo: codigo}

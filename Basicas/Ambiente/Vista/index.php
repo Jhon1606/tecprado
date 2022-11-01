@@ -366,7 +366,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="../../../Bootstrap/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -446,7 +446,7 @@
                 <div class="container-fluid">
                     <h2>Ambientes</h2>
                     <div class="col p-2">
-                        <a href="Javascript:void()" onclick="modalAñadir()"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Ambiente </button></a> 
+                        <a href="Javascript:void()" onclick="modalAgregar('Ambiente')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Ambiente </button></a> 
                     </div>
 
                     <div class="table-responsive">
@@ -470,7 +470,7 @@
                                     <th><?php echo $ambiente['codigo']; ?></th>
                                     <td><?php echo $ambiente['descripcion']; ?></td>
                                     <td><?php echo $ambiente['complejo']; ?></td>
-                                    <td><?php echo $ambiente['tipoubicacion']; ?></td>
+                                    <td><?php echo $ambiente['tipoambiente']; ?></td>
                                     <td style="text-align:right;">
                                         <a href="Javascript:void()" onclick="modalEditar(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
                                         <a href="Javascript:void()" onclick="modalEliminar(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
@@ -562,7 +562,6 @@
     <script src="../../../Bootstrap/js/demo/chart-pie-demo.js"></script>
 
     <script src="../../../Bootstrap/js/javascript.js"></script>
-
 </body>
 
 </html>

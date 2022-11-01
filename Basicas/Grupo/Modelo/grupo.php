@@ -1,19 +1,20 @@
 <?php 
 require_once("../../../conexion.php");
 
-class ambiente extends conexion{
+class grupo extends conexion{
 
     public function __construct(){
         $this->conexion=parent::__construct();
     }   
 
-    public function add($codigo,$descripcion,$tipo_ubicacion,$centro_costo){
-    $statement=$this->conexion->prepare("INSERT INTO ubicacion(codigo,descripcion,tipo_ubicacion,centro_costo)
-                                        VALUES(:codigo,:descripcion,:tipo_ubicacion,:centro_costo)");
-    $statement->bindParam(':codigo',$codigo);
+    public function add($codigo_gru,$descripcion,$consecutivo,$tipo_medicion,$frecuencia_mtto){
+    $statement=$this->conexion->prepare("INSERT INTO grupo_equipo(codigo_gru,descripcion,consecutivo,tipo_medicion,frecuencia_mtto)
+                                        VALUES(:codigo_gru,:descripcion,:consecutivo,:tipo_medicion,:frecuencia_mtto)");
+    $statement->bindParam(':codigo_gru',$codigo_gru);
     $statement->bindParam(':descripcion',$descripcion);
-    $statement->bindParam(':tipo_ubicacion',$tipo_ubicacion);
-    $statement->bindParam(':centro_costo',$centro_costo);
+    $statement->bindParam(':consecutivo',$consecutivo);
+    $statement->bindParam(':tipo_medicion,',$tipo_medicion,);
+    $statement->bindParam(':frecuencia_mtto,',$frecuencia_mtto,);
     if($statement->execute()){
         header('Location: ../Vista/index.php');
     }else{
@@ -24,8 +25,8 @@ class ambiente extends conexion{
   
     public function get(){
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT a.id, a.codigo, a.descripcion, b.descripcion as complejo, c.descripcion as tipoambiente
-                                             FROM ubicacion AS a
+        $statement=$this->conexion->prepare("SELECT a.codigo, a.descripcion, b.descripcion as complejo, c.descripcion as tipoambiente
+                                             FROM grupo_equipo AS a
                                              INNER JOIN centros_costos AS b ON a.centro_costo = b.codigo
                                              INNER JOIN tipo_ubicacion AS c ON a.tipo_ubicacion = c.id");
         $statement->execute();
