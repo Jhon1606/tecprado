@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="myModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditarComplejo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,10 +10,10 @@
             <form action="../Controlador/add.php" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input type="hidden" id="codigo" name="codigo">
+                        <input class="form-control" type="text" placeholder="Codigo..." id="ideditar" name="codigo" required="">
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="Descripción..." name="descripcion" id="descripcion" required="" aria-label="Descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción..." id="descripcion" name="descripcion" required="" aria-label="Descripcion">
                     </div>
                 </div>
                 <div class="modal-footer">

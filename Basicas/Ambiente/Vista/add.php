@@ -17,7 +17,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Complejo</label>
-                        <select class="form-select" aria-label="Default select example" name="complejo">
+                        <select class="form-select" aria-label="Default select example" name="centro_costo">
                             <option value="">Seleccione</option>
                             <?php
                             $complejos= $modeloAmbiente->getComplejo();
@@ -34,7 +34,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tipo de ambiente</label>
-                        <select class="form-select" aria-label="Default select example" name="tipoambiente"> 
+                        <select class="form-select" aria-label="Default select example" name="tipo_ubicacion"> 
                             <option value="">Seleccione</option>
                             <?php
                             $tipoAmbientes= $modeloAmbiente->getTipoA();

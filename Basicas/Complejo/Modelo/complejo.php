@@ -8,16 +8,18 @@ class complejo extends conexion{
     }   
 
     public function add($codigo,$descripcion){
-    $statement=$this->conexion->prepare("INSERT INTO centros_costos(codigo,descripcion)
-                                        VALUES(:codigo,:descripcion)");
-    $statement->bindParam(':codigo',$codigo);
-    $statement->bindParam(':descripcion',$descripcion);
-    if($statement->execute()){
-        header('Location: ../Vista/index.php');
-    }else{
-        header('Location: ../Vista/add.php');
-    }
+     
+        $statement=$this->conexion->prepare("INSERT INTO centros_costos(codigo,descripcion)
+                                            VALUES(:codigo,:descripcion)");
+        $statement->bindParam(':codigo',$codigo);
+        $statement->bindParam(':descripcion',$descripcion);
+        if($statement->execute()){
+            header('Location: ../Vista/index.php');
+        }else{
+            header('Location: ../Vista/add.php');
+        }
 
+        
     }
   
     public function get(){
@@ -33,7 +35,7 @@ class complejo extends conexion{
     public function getById($codigo){
 
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT * FROM centros_costos WHERE codigo=:codigo");
+        $statement=$this->conexion->prepare("SELECT * FROM centros_costos WHERE codigo= :codigo");
         $statement->bindParam(":codigo",$codigo);
         $statement->execute();
         while($result=$statement->fetch()){

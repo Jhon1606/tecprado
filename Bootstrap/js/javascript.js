@@ -3,8 +3,7 @@ function modalAgregar(pagina){
 }
 
 
-function modalEditar(codigo){
-
+function modalEditarComplejo(codigo){
     alert(codigo);
 
     $.ajax({
@@ -14,11 +13,31 @@ function modalEditar(codigo){
         data: {codigo: codigo}
     })
     .done(function(info){
+        alert("hola" + codigo);
         var descripcion = info[0].descripcion;
 
-        $("#codigo").val(codigo);
+        $("#ideditar").val(codigo);
         $("#descripcion").val(descripcion);
-        $('#myModalEditar').modal('show');
+        $('#modalEditarComplejo').modal('show');
+    });
+}
+
+function modalEditarAmbiente(ideditar){
+
+    alert(ideditar);
+
+    $.ajax({
+        url: "../../General/Queries/infoambiente.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {ideditar: ideditar}
+    })
+    .done(function(info){
+        var descripcion = info[0].descripcion;
+
+        $("#ideditar").val(ideditar);
+        $("#descripcion").val(descripcion);
+        $('#modalEditarAmbiente').modal('show');
     });
 }
 
@@ -28,3 +47,12 @@ function modalEliminar(codigo){
     $("#codigo").val(codigo);
     $('#myModal3').modal('show');
 }
+
+// $("#btnGuardar").click(function(){
+//     swal({
+//         title: "Buen trabajo!",
+//         text: "Registro exitoso!",
+//         icon: "success",
+//         timer: 3000,
+//       });
+// });

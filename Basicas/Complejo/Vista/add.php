@@ -10,7 +10,7 @@
             <form action="../Controlador/add.php" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input class="form-control" type="number" placeholder="Codigo..." name="codigo" required="" aria-label="Codigo">
+                        <input class="form-control" type="text" placeholder="Codigo..." name="codigo" required="" aria-label="Codigo">
                     </div>
                     <div class="mb-3">
                         <input class="form-control" type="text" placeholder="Descripción..." name="descripcion" required="" aria-label="Descripcion">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="myModal"> Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" id="btnGuardar" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>

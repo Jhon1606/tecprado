@@ -7,8 +7,8 @@ if ($_POST) {
 
     $codigo = $_POST['codigo'];
     $descripcion = $_POST['descripcion']; 
-    $centro_costo = $_POST['complejo']; 
-    $tipo_ubicacion = $_POST['tipoambiente']; 
+    $centro_costo = $_POST['centro_costo']; 
+    $tipo_ubicacion = $_POST['tipo_ubicacion']; 
     
     $modeloAmbiente->add($codigo,$descripcion,$centro_costo,$tipo_ubicacion);
     }else{

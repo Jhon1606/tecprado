@@ -15,7 +15,7 @@
     <meta name="author" content="">
 
     <title>Ambiente</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script>
+    
     <link rel="stylesheet" href="../../../Bootstrap/css/style.css">
     <link href="../../../Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -469,10 +469,10 @@
                                 <tr>
                                     <th><?php echo $ambiente['codigo']; ?></th>
                                     <td><?php echo $ambiente['descripcion']; ?></td>
-                                    <td><?php echo $ambiente['complejo']; ?></td>
-                                    <td><?php echo $ambiente['tipoambiente']; ?></td>
+                                    <td><?php echo $ambiente['centro_costo']; ?></td>
+                                    <td><?php echo $ambiente['tipo_ubicacion']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="Javascript:void()" onclick="modalEditar(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="Javascript:void()" onclick="modalEditarAmbiente(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
                                         <a href="Javascript:void()" onclick="modalEliminar(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
@@ -562,6 +562,7 @@
     <script src="../../../Bootstrap/js/demo/chart-pie-demo.js"></script>
 
     <script src="../../../Bootstrap/js/javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script>
 </body>
 
 </html>
