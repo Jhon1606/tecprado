@@ -2,9 +2,7 @@ function modalAgregar(pagina){
     $('#myModal' + pagina).modal('show');
 }
 
-
 function modalEditarComplejo(codigo){
-    alert(codigo);
 
     $.ajax({
         url: "../../General/Queries/infocomplejo.php",
@@ -13,7 +11,6 @@ function modalEditarComplejo(codigo){
         data: {codigo: codigo}
     })
     .done(function(info){
-        alert("hola" + codigo);
         var descripcion = info[0].descripcion;
 
         $("#ideditar").val(codigo);
@@ -42,10 +39,9 @@ function modalEditarAmbiente(ideditar){
 }
 
 function modalEliminar(codigo){
-    alert(codigo);
-    // document.getElementById("ideliminar").value = ideliminar;
+
     $("#codigo").val(codigo);
-    $('#myModal3').modal('show');
+    $('#myModalEliminar').modal('show');
 }
 
 // $("#btnGuardar").click(function(){

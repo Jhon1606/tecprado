@@ -446,7 +446,7 @@
                 <div class="container-fluid">
                     <h2>Complejos</h2>
                     <div class="col p-2">
-                        <a href="Javascript:void(0)" onclick="modalAgregar('Complejo')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Complejo </button></a> 
+                        <a href="Javascript:void()" onclick="modalAgregar('Complejo')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Complejo </button></a> 
                     </div>
 
                     <div class="table-responsive">
@@ -468,8 +468,8 @@
                                     <th><?php echo $complejo['codigo']; ?></th>
                                     <td><?php echo $complejo['descripcion']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="Javascript:void(0)" onclick="modalEditarComplejo(<?php echo $complejo['codigo']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="Javascript:void(0)" onclick="modalEliminar(<?php echo $complejo['codigo']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="Javascript:void()" onclick="modalEditarComplejo('<?php echo $complejo['codigo']; ?>')"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="Javascript:void()" onclick="modalEliminar('<?php echo $complejo['codigo']; ?>')"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
                             <?php

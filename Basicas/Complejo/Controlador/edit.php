@@ -8,7 +8,7 @@ if ($_POST) {
     $codigo = $_POST['codigo'];
     $descripcion = $_POST['descripcion'];
     
-    $modeloProducto->update($codigo,$descripcion);
+    $modeloComplejo->update($codigo,$descripcion);
     }else{
         header('Location: ../Vista/index.php');
     }

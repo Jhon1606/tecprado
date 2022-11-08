@@ -54,7 +54,7 @@ class complejo extends conexion{
     }
 
     public function update($codigo,$descripcion){
-        $statement=$this->conexion->prepare("UPDATE centros_costos SET descripcion=:descripcion, WHERE codigo = :codigo");
+        $statement=$this->conexion->prepare("UPDATE centros_costos SET descripcion = :descripcion WHERE codigo = :codigo");
 
          $statement->bindParam(':codigo',$codigo);
          $statement->bindParam(':descripcion',$descripcion);
