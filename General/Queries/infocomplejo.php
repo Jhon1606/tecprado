@@ -1,5 +1,5 @@
 <?php
-require_once("../../Complejo/Modelo/complejo.php");
+require_once("../../Basicas/Complejo/Modelo/complejo.php");
 
 $codigo = $_POST["codigo"];
 $arreglo = array();

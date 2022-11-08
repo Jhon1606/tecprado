@@ -6,6 +6,7 @@ if ($_POST) {
 
     $codigo = $_POST['codigo'];
     $descripcion = $_POST['descripcion']; 
+    $modeloComplejo->existe($codigo);
     
     $modeloComplejo->add($codigo,$descripcion);
     }else{

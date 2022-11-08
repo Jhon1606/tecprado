@@ -44,6 +44,15 @@ class complejo extends conexion{
         return $rows;
     }
 
+    public function existe($codigo){
+        $statement = $this->conexion->prepare("SELECT COUNT(*) FROM centros_costos WHERE codigo = :codigo");
+        $statement->bindParam(":codigo",$codigo);
+        $statement->execute();
+        if($statement->fetchColumn()>0){
+            echo '<script> alert("El codigo ya existe"); window.location.href="../Vista/index.php"</script>';
+        }
+    }
+
     public function update($codigo,$descripcion){
         $statement=$this->conexion->prepare("UPDATE centros_costos SET descripcion=:descripcion, WHERE codigo = :codigo");
 

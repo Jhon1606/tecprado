@@ -156,9 +156,9 @@
                 <div id="collapseBasicas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="../../Ambiente/Vista/index.php">Ambiente</a>
+                        <a class="collapse-item" href="../../Grupo/Vista/index.php">Grupo</a>
+                        <a class="collapse-item" href="../../Complejo/Vista/index.php">Complejos</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
@@ -541,7 +541,7 @@
     ?>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../../Bootstrap/vendor/jquery/jquery.min.js"></script>
+    
     <script src="../../../Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->

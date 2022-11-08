@@ -27,7 +27,7 @@ function modalEditarAmbiente(ideditar){
     alert(ideditar);
 
     $.ajax({
-        url: "../../General/Queries/infoambiente.php",
+        url: "../General/Queries/infoambiente.php",
         type: "POST",
         dataType: "JSON",
         data: {ideditar: ideditar}
