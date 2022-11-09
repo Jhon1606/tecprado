@@ -43,8 +43,9 @@
     <script src="../../../Bootstrap/js/demo/chart-area-demo.js"></script>
     <script src="../../../Bootstrap/js/demo/chart-pie-demo.js"></script>
 
-    <script src="../../../Bootstrap/js/javascript.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script>
+    <script src="../../../Bootstrap/js/javascript.js"></script>
 
 
 </head>

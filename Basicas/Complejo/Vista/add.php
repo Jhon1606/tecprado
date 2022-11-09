@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Añadir Complejo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="myModal" aria-label="Close"></button>
+                <a href="index.php"> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
             </div>
             <!-- Formulario -->
             <form action="../Controlador/add.php" method="POST">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="myModal"> Cerrar</button>
+                    <a href="index.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cerrar</button></a> 
                     <button type="submit" id="btnGuardar" class="btn btn-primary">Guardar</button>
                 </div>
             </form>

@@ -6,7 +6,7 @@ if ($_POST) {
     $modeloComplejo = new complejo();
 
     $codigo = $_POST['codigo'];
-    $descripcion = $_POST['descripcion'];
+    $descripcion = strtoupper($_POST['descripcion']);
     
     $modeloComplejo->update($codigo,$descripcion);
     }else{

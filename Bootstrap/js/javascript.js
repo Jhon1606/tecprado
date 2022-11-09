@@ -49,6 +49,6 @@ function modalEliminar(codigo){
 //         title: "Buen trabajo!",
 //         text: "Registro exitoso!",
 //         icon: "success",
-//         timer: 3000,
+//         timer: 3000
 //       });
-// });
+//  });

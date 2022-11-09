@@ -1,5 +1,7 @@
 <?php 
+session_start();
 require_once("../../../conexion.php");
+require_once("../../../Helpers/alert.php");
 
 class complejo extends conexion{
 
@@ -14,12 +16,13 @@ class complejo extends conexion{
         $statement->bindParam(':codigo',$codigo);
         $statement->bindParam(':descripcion',$descripcion);
         if($statement->execute()){
+            create_flash_message("Exitoso", "Registro exitoso","success");
             header('Location: ../Vista/index.php');
         }else{
-            header('Location: ../Vista/add.php');
+            create_flash_message("Error", "Error al registrar","error");
+            header('Location: ../Vista/index.php');
         }
 
-        
     }
   
     public function get(){
@@ -49,8 +52,10 @@ class complejo extends conexion{
         $statement->bindParam(":codigo",$codigo);
         $statement->execute();
         if($statement->fetchColumn()>0){
-            echo '<script> alert("El codigo ya existe"); window.location.href="../Vista/index.php"</script>';
+            create_flash_message("Error", "El código existe","error");
+            return true;
         }
+        return false;
     }
 
     public function update($codigo,$descripcion){
