@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="myModal" aria-label="Close"></button>
             </div>
             <!-- Formulario -->
-            <form action="../Controlador/add.php" method="POST">
+            <form action="../Controlador/edit.php" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
                         <input class="form-control" type="number" placeholder="Codigo..." name="codigo" id="codigo" required="" aria-label="Codigo">

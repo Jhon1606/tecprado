@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../Basicas/Ambiente/Modelo/ambiente.php");
+require_once("../../Ambiente/Modelo/ambiente.php");
 
 $ideditar = $_POST["ideditar"];
 $arreglo = array();

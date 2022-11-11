@@ -6,10 +6,7 @@ if ($_POST) {
 
     $codigo = $_POST['codigo'];
     $descripcion = strtoupper($_POST['descripcion']); 
-    
-    if ($modeloComplejo->existe($codigo)){
-        header('Location: ../Vista/index.php');
-    } 
+    $modeloComplejo->existe($codigo);
     
     $modeloComplejo->add($codigo,$descripcion);
    

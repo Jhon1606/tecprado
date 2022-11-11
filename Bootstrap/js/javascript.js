@@ -11,6 +11,7 @@ function modalEditarComplejo(codigo){
         data: {codigo: codigo}
     })
     .done(function(info){
+
         var descripcion = info[0].descripcion;
 
         $("#ideditar").val(codigo);
@@ -21,10 +22,8 @@ function modalEditarComplejo(codigo){
 
 function modalEditarAmbiente(ideditar){
 
-    alert(ideditar);
-
     $.ajax({
-        url: "../General/Queries/infoambiente.php",
+        url: "../../General/Queries/infoambiente.php",
         type: "POST",
         dataType: "JSON",
         data: {ideditar: ideditar}

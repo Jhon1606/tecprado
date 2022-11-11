@@ -53,7 +53,7 @@ class complejo extends conexion{
         $statement->execute();
         if($statement->fetchColumn()>0){
             create_flash_message("Error", "El código existe","error");
-            return true;
+            header('Location: ../Vista/index.php');
         }
         return false;
     }
@@ -65,9 +65,11 @@ class complejo extends conexion{
          $statement->bindParam(':descripcion',$descripcion);
          
          if($statement->execute()){
+            create_flash_message("Exitoso", "Registro exitoso","success");
             header('Location: ../Vista/index.php');
          }else{
-             header('Location: ../Vista/edit.php');
+            create_flash_message("Error", "Error al Editar","error");
+            header('Location: ../Vista/index.php');
          }
     }
 
@@ -75,9 +77,11 @@ class complejo extends conexion{
         $statement=$this->conexion->prepare("DELETE FROM centros_costos WHERE codigo = :codigo");
         $statement->bindParam(":codigo",$codigo);
         if($statement->execute()){
+            create_flash_message("Exitoso", "Eliminado con exito","success");
             header('Location: ../Vista/index.php');
         }else{
-            header('Location: ../Vista/delete.php');
+            create_flash_message("Error", "Error al Eliminar","error");
+            header('Location: ../Vista/index.php');
         }
     }
 }

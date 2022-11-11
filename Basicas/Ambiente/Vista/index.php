@@ -44,7 +44,7 @@
     <script src="../../../Bootstrap/js/demo/chart-pie-demo.js"></script>
 
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script> -->
     <script src="../../../Bootstrap/js/javascript.js"></script>
 
 
@@ -467,7 +467,7 @@
                 <div class="container-fluid">
                     <h2>Ambientes</h2>
                     <div class="col p-2">
-                        <a href="Javascript:void()" onclick="modalAgregar('Ambiente')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Ambiente </button></a> 
+                        <a href="javascript:void(0);" onclick="modalAgregar('Ambiente')" ><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Ambiente </button></a> 
                     </div>
 
                     <div class="table-responsive">
@@ -493,8 +493,8 @@
                                     <td><?php echo $ambiente['centro_costo']; ?></td>
                                     <td><?php echo $ambiente['tipo_ubicacion']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="Javascript:void()" onclick="modalEditarAmbiente(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="Javascript:void()" onclick="modalEliminar(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEditarAmbiente('<?php echo $ambiente['codigo']; ?>')"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEliminar('<?php echo $ambiente['codigo']; ?>')"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
                             <?php

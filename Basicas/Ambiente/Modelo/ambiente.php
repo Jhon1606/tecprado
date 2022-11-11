@@ -7,17 +7,17 @@ class ambiente extends conexion{
         $this->conexion=parent::__construct();
     }   
 
-    public function add($codigo,$descripcion,$tipo_ubicacion,$centro_costo){
-    $statement=$this->conexion->prepare("INSERT INTO ubicacion(codigo,descripcion,tipo_ubicacion,centro_costo)
-                                        VALUES(:codigo,:descripcion,:tipo_ubicacion,:centro_costo)");
+    public function add($codigo,$descripcion,$centro_costo,$tipo_ubicacion,){
+    $statement=$this->conexion->prepare("INSERT INTO ubicacion(codigo,descripcion,centro_costo,tipo_ubicacion)
+                                        VALUES(:codigo,:descripcion,:centro_costo,:tipo_ubicacion)");
     $statement->bindParam(':codigo',$codigo);
     $statement->bindParam(':descripcion',$descripcion);
-    $statement->bindParam(':tipo_ubicacion',$tipo_ubicacion);
     $statement->bindParam(':centro_costo',$centro_costo);
+    $statement->bindParam(':tipo_ubicacion',$tipo_ubicacion);
     if($statement->execute()){
         header('Location: ../Vista/index.php');
     }else{
-        header('Location: ../Vista/add.php');
+        header('Location: ../Vista/index.php');
     }
 
     }
@@ -60,7 +60,7 @@ class ambiente extends conexion{
     public function getById($ideditar){
 
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT * FROM ubicacion WHERE id=:ideditar");
+        $statement=$this->conexion->prepare("SELECT * FROM ubicacion WHERE codigo=:ideditar");
         $statement->bindParam(":ideditar",$ideditar);
         $statement->execute();
         while($result=$statement->fetch()){
