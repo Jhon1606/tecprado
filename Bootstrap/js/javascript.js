@@ -21,6 +21,7 @@ function modalEditarComplejo(codigo){
 }
 
 function modalEditarAmbiente(ideditar){
+    alert(ideditar);
 
     $.ajax({
         url: "../../General/Queries/infoambiente.php",
@@ -30,9 +31,13 @@ function modalEditarAmbiente(ideditar){
     })
     .done(function(info){
         var descripcion = info[0].descripcion;
+        var tipo_ubicacion = info[0].tipo_ubicacion;
+        var centro_costo = info[0].centro_costo;
 
         $("#ideditar").val(ideditar);
         $("#descripcion").val(descripcion);
+        $("#tipo_ubicacion").val(tipo_ubicacion);
+        $("#centro_costo").val(centro_costo);
         $('#modalEditarAmbiente').modal('show');
     });
 }

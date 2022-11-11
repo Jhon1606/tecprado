@@ -4,23 +4,24 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Añadir Ambiente</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="myModal" aria-label="Close"></button>
+                <a href="index.php"> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
             </div>
             <!-- Formulario -->
             <form action="../Controlador/edit.php" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input class="form-control" type="number" placeholder="Codigo..." name="codigo" id="codigo" required="" aria-label="Codigo">
+                        <input class="form-control" type="number" placeholder="Codigo..." name="codigo" id="ideditar" required="" aria-label="Codigo">
                     </div>
                     <div class="mb-3">
                         <input class="form-control" type="text" placeholder="Descripción..." name="descripcion" id="descripcion" required="" aria-label="Descripcion">
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">Complejo</label>
-                        <select class="form-select" aria-label="Default select example" name="centro_costo" id="centro_costo">
+                        <select class="form-select" name="centro_costo" id="centro_costo">
                             <option value="">Seleccione</option>
                             <?php
-                            $complejos= $modeloAmbiente->getComplejo();
+                            $complejos= $modeloAmbiente->getComplejos();
 
                             if($complejos != null){
                                 foreach($complejos as $complejo){
@@ -32,6 +33,7 @@
                             ?>  
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">Tipo de ambiente</label>
                         <select class="form-select" aria-label="Default select example" name="tipo_ubicacion" id="tipo_ubicacion"> 
@@ -49,9 +51,10 @@
                             ?> 
                         </select>
                     </div>
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="myModal"> Cerrar</button>
+                    <a href="index.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cerrar</button></a> 
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
