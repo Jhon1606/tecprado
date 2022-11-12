@@ -21,7 +21,6 @@ function modalEditarComplejo(codigo){
 }
 
 function modalEditarAmbiente(ideditar){
-    alert(ideditar);
 
     $.ajax({
         url: "../../General/Queries/infoambiente.php",

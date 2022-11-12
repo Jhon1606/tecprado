@@ -6,9 +6,10 @@ if ($_POST) {
     $modeloAmbiente = new ambiente();
 
     $codigo = $_POST['codigo'];
-    $descripcion = $_POST['descripcion']; 
+    $descripcion = strtoupper($_POST['descripcion']); 
     $centro_costo = $_POST['centro_costo']; 
-    $tipo_ubicacion = $_POST['tipo_ubicacion']; 
+    $tipo_ubicacion = $_POST['tipo_ubicacion'];
+    $modeloAmbiente->existe($codigo);
     
     $modeloAmbiente->add($codigo,$descripcion,$centro_costo,$tipo_ubicacion);
     }else{

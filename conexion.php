@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 class conexion{
    
     private $servidor = "localhost:3308";

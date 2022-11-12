@@ -1,4 +1,6 @@
 <?php
+    error_reporting(0); 
+    require_once('../../../Helpers/alert.php');
     require_once('../Modelo/ambiente.php');
 
     $modeloAmbiente= new ambiente();
@@ -26,6 +28,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="../../../Bootstrap/vendor/jquery/jquery.min.js"></script>
     <script src="../../../Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -565,6 +568,7 @@
         require_once('delete.php');
     ?>
 
+    <?php show_flash_messages() ?> 
     
 </body>
 
