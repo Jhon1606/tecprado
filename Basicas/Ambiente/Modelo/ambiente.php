@@ -84,14 +84,14 @@ class ambiente extends conexion{
         return $rows;
     }
 
-    public function update($codigo,$descripcion,$tipo_ubicacion,$centro_costo){
-        $statement=$this->conexion->prepare("UPDATE ubicacion SET descripcion=:descripcion, tipo_ubicacion=:tipo_ubicacion,
-                                           centro_costo=:centro_costo WHERE codigo = :codigo");
+    public function update($codigo,$descripcion,$centro_costo,$tipo_ubicacion){
+        $statement=$this->conexion->prepare("UPDATE ubicacion SET descripcion=:descripcion, 
+                                           centro_costo=:centro_costo, tipo_ubicacion=:tipo_ubicacion WHERE codigo = :codigo");
 
          $statement->bindParam(':codigo',$codigo);
          $statement->bindParam(':descripcion',$descripcion);
-         $statement->bindParam(':tipo_ubicacion',$tipo_ubicacion);
          $statement->bindParam(':centro_costo',$centro_costo);
+         $statement->bindParam(':tipo_ubicacion',$tipo_ubicacion);
          
          if($statement->execute()){
             create_flash_message("Exitoso", "Registro exitoso","success");

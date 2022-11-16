@@ -29,11 +29,12 @@ function modalEditarAmbiente(ideditar){
         data: {ideditar: ideditar}
     })
     .done(function(info){
+        var codigo = info[0].codigo;
         var descripcion = info[0].descripcion;
         var tipo_ubicacion = info[0].tipo_ubicacion;
         var centro_costo = info[0].centro_costo;
 
-        $("#ideditar").val(ideditar);
+        $("#ideditar").val(codigo);
         $("#descripcion").val(descripcion);
         $("#tipo_ubicacion").val(tipo_ubicacion);
         $("#centro_costo").val(centro_costo);
@@ -42,16 +43,9 @@ function modalEditarAmbiente(ideditar){
 }
 
 function modalEliminar(codigo){
+    alert(codigo);
 
     $("#codigo").val(codigo);
     $('#myModalEliminar').modal('show');
 }
 
-// $("#btnGuardar").click(function(){
-//     swal({
-//         title: "Buen trabajo!",
-//         text: "Registro exitoso!",
-//         icon: "success",
-//         timer: 3000
-//       });
-//  });

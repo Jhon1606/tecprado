@@ -10,10 +10,10 @@
             <form action="../Controlador/edit.php" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
-                    <input class="form-control" type="number" id="ideditar" name="codigo" readonly>
+                        <input class="form-control" type="text" id="ideditar" name="codigo" readonly>
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="Descripción..." name="descripcion" id="descripcion" required="" aria-label="Descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción..." name="descripcion" id="descripcion" aria-label="Descripcion">
                     </div>
 
                     <div class="mb-3">
@@ -33,7 +33,7 @@
                             ?>  
                         </select>
                     </div>
-
+                    
                     <div class="mb-3">
                         <label class="form-label">Tipo de ambiente</label>
                         <select class="form-select" aria-label="Default select example" name="tipo_ubicacion" id="tipo_ubicacion"> 
@@ -51,7 +51,7 @@
                             ?> 
                         </select>
                     </div>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <a href="index.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cerrar</button></a> 

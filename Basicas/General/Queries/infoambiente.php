@@ -13,6 +13,7 @@ if ($informacionAmbiente != null){
     foreach ($informacionAmbiente as $infoAmbiente) {
        
         $arreglo[] = array(
+                            "codigo"=>$infoAmbiente["codigo"],
                             "descripcion"=>$infoAmbiente["descripcion"],
                             "tipo_ubicacion"=>$infoAmbiente["tipo_ubicacion"],
                             "centro_costo" => $infoAmbiente["centro_costo"],    

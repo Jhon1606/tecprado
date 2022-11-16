@@ -25,10 +25,7 @@ class grupo extends conexion{
   
     public function get(){
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT a.codigo, a.descripcion, b.descripcion as complejo, c.descripcion as tipoambiente
-                                             FROM grupo_equipo AS a
-                                             INNER JOIN centros_costos AS b ON a.centro_costo = b.codigo
-                                             INNER JOIN tipo_ubicacion AS c ON a.tipo_ubicacion = c.id");
+        $statement=$this->conexion->prepare("SELECT * FROM grupo_equipo");
         $statement->execute();
         while($result=$statement->fetch()){
             $rows[]=$result;
@@ -36,10 +33,11 @@ class grupo extends conexion{
         return $rows;
     }
 
-    public function getComplejos(){
+    public function getById($codigo){
 
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT * FROM centros_costos");
+        $statement=$this->conexion->prepare("SELECT * FROM grupo_equipo WHERE codigo_gru=:codigo");
+        $statement->bindParam(":codigo",$codigo);
         $statement->execute();
         while($result=$statement->fetch()){
             $rows[]=$result;
@@ -47,39 +45,28 @@ class grupo extends conexion{
         return $rows;
     }
 
-    public function getTipoA(){
-
-        $rows=null;
-        $statement=$this->conexion->prepare("SELECT * FROM tipo_ubicacion");
+    
+    public function existe($codigo){
+        $statement = $this->conexion->prepare("SELECT COUNT(*) FROM grupo_equipo WHERE codigo_gru = :codigo");
+        $statement->bindParam(":codigo",$codigo);
         $statement->execute();
-        while($result=$statement->fetch()){
-            $rows[]=$result;
+        if($statement->fetchColumn()>0){
+            create_flash_message("Error", "El código existe","error");
+            header('Location: ../Vista/index.php');
         }
-        return $rows;
+        return false;
     }
 
-    public function getById($id){
+    public function update($codigo,$descripcion,$estado,$consecutivo,$tipo_medicion,$frecuencia_mtto){
+        $statement=$this->conexion->prepare("UPDATE grupo_equipo SET descripcion=:descripcion, estado=:estado,
+                                            consecutivo=:consecutivo,tipo_medicion=:tipo_medicion, frecuencia_mtto = :frecuencia_mtto WHERE codigo_gru = :codigo");
 
-        $rows=null;
-        $statement=$this->conexion->prepare("SELECT * FROM ubicacion WHERE id=:id");
-        $statement->bindParam(":id",$id);
-        $statement->execute();
-        while($result=$statement->fetch()){
-            $rows[]=$result;
-        }
-        return $rows;
-    }
-
-    public function update($id,$codigo,$descripcion,$tipo_ubicacion,$estado,$centro_costo){
-        $statement=$this->conexion->prepare("UPDATE ubicacion SET codigo=:codigo, descripcion=:descripcion, tipo_ubicacion=:tipo_ubicacion
-                                            estado=:estado,centro_costo=:centro_costo WHERE id = :id");
-
-         $statement->bindParam(':id',$id);
          $statement->bindParam(':codigo',$codigo);
          $statement->bindParam(':descripcion',$descripcion);
-         $statement->bindParam(':tipo_ubicacion',$tipo_ubicacion);
          $statement->bindParam(':estado',$estado);
-         $statement->bindParam(':centro_costo',$centro_costo);
+         $statement->bindParam(':consecutivo',$consecutivo);
+         $statement->bindParam(':tipo_medicion',$tipo_medicion);
+         $statement->bindParam(':frecuencia_mtto',$frecuencia_mtto);
          
          if($statement->execute()){
             header('Location: ../Vista/index.php');
@@ -88,9 +75,9 @@ class grupo extends conexion{
          }
     }
 
-    public function delete($id){
-        $statement=$this->conexion->prepare("DELETE FROM ubicacion WHERE id = :id");
-        $statement->bindParam(":id",$id);
+    public function delete($codigo){
+        $statement=$this->conexion->prepare("DELETE FROM grupo_equipo WHERE codigo_gru = :codigo");
+        $statement->bindParam(":codigo",$codigo);
         if($statement->execute()){
             header('Location: ../Vista/index.php');
         }else{

@@ -1,8 +1,10 @@
 <?php
     error_reporting(0);
+    // require_once('../../../Usuarios/Modelo/usuarios.php');
     require_once('../../../Helpers/alert.php');
     require_once('../Modelo/complejo.php');
     
+    $modeloUsuarios = new usuarios();
 
     $modeloComplejo= new complejo();
     $complejos = $modeloComplejo->get();
@@ -19,7 +21,6 @@
 
     <title>Complejos</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script>
-    <link rel="stylesheet" href="../../../Bootstrap/css/style.css">
     <link href="../../../Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
@@ -28,7 +29,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   
 
 </head>
 
@@ -413,7 +414,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Daniel Echeverry</span>
                                 <img class="img-profile rounded-circle"
                                     src="../../../Bootstrap/img/undraw_profile.svg">
                             </a>

@@ -10,7 +10,7 @@
             <form action="../Controlador/add.php" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input class="form-control" type="number" placeholder="Codigo..." name="codigo" required="" aria-label="Codigo">
+                        <input class="form-control" type="text" placeholder="Codigo..." name="codigo" required="" aria-label="Codigo">
                     </div>
                     <div class="mb-3">
                         <input class="form-control" type="text" placeholder="Descripción..." name="descripcion" required="" aria-label="Descripcion">

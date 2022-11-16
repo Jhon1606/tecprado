@@ -13,7 +13,7 @@
                         <input class="form-control" type="number" id="ideditar" name="codigo" readonly>
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="Descripción..." id="descripcion" name="descripcion" required="" aria-label="Descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción..." id="descripcion" name="descripcion" aria-label="Descripcion">
                     </div>
                 </div>
                 <div class="modal-footer">

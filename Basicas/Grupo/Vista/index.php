@@ -15,7 +15,6 @@
     <meta name="author" content="">
 
     <title>Grupos de equipos</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script>
     <link rel="stylesheet" href="../../../Bootstrap/css/style.css">
     <link href="../../../Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -26,6 +25,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../../Bootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="../../../Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../../Bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../../Bootstrap/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../../../Bootstrap/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../../../Bootstrap/js/demo/chart-area-demo.js"></script>
+    <script src="../../../Bootstrap/js/demo/chart-pie-demo.js"></script>
+
+    
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script> -->
+    <script src="../../../Bootstrap/js/javascript.js"></script>
 
 </head>
 
@@ -366,7 +386,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="../../../Bootstrap/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -446,7 +466,7 @@
                 <div class="container-fluid">
                     <h2>Grupos de equipos</h2>
                     <div class="col p-2">
-                        <a href="Javascript:void()" onclick="modalAñadir('Grupo')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Ambiente </button></a> 
+                        <a href="javascript:void(0);" onclick="modalAgregar('Grupo')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Grupo </button></a> 
                     </div>
 
                     <div class="table-responsive">
@@ -454,26 +474,26 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Codigo</th>
-                                    <th scope="col">Descripción del ambiente</th> 
-                                    <th scope="col">Complejo</th> 
-                                    <th scope="col">Tipo de ambiente</th> 
+                                    <th scope="col">Descripción</th> 
+                                    <th scope="col">Estado</th> 
+                                    <th scope="col">Tipo de medicion</th> 
                                     <th scope="col"></th> 
                                 </tr>
                             </thead>
 
                             <tbody>
                             <?php         
-                                if($ambientes != null){ 
-                                    foreach($ambientes as $ambiente){
+                                if($grupos != null){ 
+                                    foreach($grupos as $grupo){
                             ?>
                                 <tr>
-                                    <th><?php echo $ambiente['codigo']; ?></th>
-                                    <td><?php echo $ambiente['descripcion']; ?></td>
-                                    <td><?php echo $ambiente['complejo']; ?></td>
-                                    <td><?php echo $ambiente['tipoambiente']; ?></td>
+                                    <th><?php echo $grupo['codigo_gru']; ?></th>
+                                    <td><?php echo $grupo['descripcion']; ?></td>
+                                    <td><?php echo $grupo['estado']; ?></td>
+                                    <td><?php echo $grupo['tipo_medicion']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="Javascript:void()" onclick="modalEditar(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="Javascript:void()" onclick="modalEliminar(<?php echo $ambiente['id']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEditar(<?php echo $grupo['codigo_gru']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEliminar(<?php echo $grupo['codigo_gru']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
                             <?php
@@ -544,24 +564,6 @@
         require_once('delete.php');
     ?>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../../Bootstrap/vendor/jquery/jquery.min.js"></script>
-    <script src="../../../Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../../Bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../../Bootstrap/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../../../Bootstrap/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../../../Bootstrap/js/demo/chart-area-demo.js"></script>
-    <script src="../../../Bootstrap/js/demo/chart-pie-demo.js"></script>
-
-    <script src="../../../Bootstrap/js/javascript.js"></script>
 </body>
 
 </html>
