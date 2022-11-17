@@ -1,7 +1,8 @@
 <?php
-session_start();
+
 require_once("../../Helpers/alert.php");
 require_once("../../conexion.php");
+session_start();
 
 
 class usuarios extends conexion{
@@ -17,7 +18,7 @@ class usuarios extends conexion{
     $statement->bindParam(':usuario',$usuario);
     $statement->bindParam(':contrasena',$password);
     $statement->execute();
-    if ($statement->fetchColumn()>0){
+    if ($statement->rowCount()==1){
         $result=$statement->fetch();
         $_SESSION['Nombre'] = $result["user_nombre"];
         $_SESSION['Id'] = $result["empleado"];
@@ -45,14 +46,6 @@ class usuarios extends conexion{
             header('Location: ../../index.php'); 
         }
     }
-    
-    // public function validarSesionAdministrador(){
-    //     if($_SESSION['Id'] != null){
-    //         if($_SESSION['Perfil']=='Docente'){
-    //             header('Location: ../../Estudiantes/Vista/index.php'); 
-    //         }
-    //     }
-    // }
 
     public function salir(){
         $_SESSION['Id'] = null;
