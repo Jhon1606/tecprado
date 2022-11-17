@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once("../../conexion.php");
 require_once("../../Helpers/alert.php");
+require_once("../../conexion.php");
 
 
 class usuarios extends conexion{
@@ -13,19 +13,19 @@ class usuarios extends conexion{
     public function login($usuario,$password){
 
     $rows=null;
-    $statement=$this->conexion->prepare("SELECT * FROM usuarios WHERE usuario = :usuario AND clave = :contrasena");
+    $statement=$this->conexion->prepare("SELECT * FROM usuarios WHERE user_id = :usuario AND clave = :contrasena");
     $statement->bindParam(':usuario',$usuario);
     $statement->bindParam(':contrasena',$password);
     $statement->execute();
-    if ($statement->rowCount() == 1){
+    if ($statement->fetchColumn()>0){
         $result=$statement->fetch();
         $_SESSION['Nombre'] = $result["user_nombre"];
         $_SESSION['Id'] = $result["empleado"];
         $_SESSION['Perfil'] = $result["perfil"];
-        header('Location: ../../Basicas/Complejo/Vista/index.php');
+        return true;
     }
-        create_flash_message("Error", "Datos incorrectos","error");
-        header('Location: ../../index.php');
+        // create_flash_message("Error", "Los datos son incorrectos","error");
+        return false;
     }
 
     public function getNombre(){

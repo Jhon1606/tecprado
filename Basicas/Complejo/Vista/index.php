@@ -4,7 +4,6 @@
     require_once('../../../Helpers/alert.php');
     require_once('../Modelo/complejo.php');
     
-    $modeloUsuarios = new usuarios();
 
     $modeloComplejo= new complejo();
     $complejos = $modeloComplejo->get();

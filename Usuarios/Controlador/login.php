@@ -1,5 +1,4 @@
 <?php
-
 require_once("../Modelo/usuarios.php");
 
 if ($_POST) {
@@ -7,9 +6,11 @@ if ($_POST) {
     $password = $_POST['password'];
 
     $modelo = new usuarios();
-    $modelo->login($usuario,$password);
-} else{
-    header('Location: ../../index.php');
+   if($modelo->login($usuario,$password)){
+        header('Location: ../../Basicas/Complejo/Vista/index.php');
+   }else{
+        header('Location: ../../index.php');
+   }
 }
 
 ?>

@@ -59,8 +59,7 @@
             </div>
         </div>
     </div>
-
-    <script src="../../../Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
     <?php show_flash_messages() ?> 
 </body>
 </html>
