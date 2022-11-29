@@ -123,6 +123,7 @@
             <a class="collapse-item" href="../../Ambiente/Vista/index.php">Ambiente</a>
             <a class="collapse-item" href="../../Grupo/Vista/index.php">Grupo</a>
             <a class="collapse-item" href="../../Complejo/Vista/index.php">Complejos</a>
+            <a class="collapse-item" href="../../Equipos/Vista/index.php">Equipos</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>

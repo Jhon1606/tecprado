@@ -22,7 +22,7 @@
                     <div class="mb-3 row">
                         <label class="form-label">Tipo de medición: </label>
                         <div class="col">
-                            <input class="form-control" type="text" name="tipo">
+                            <input class="form-control" type="text" name="tipo_medicion">
                         </div>
                         <div class="col">
                             <input class="form-control" type="text" name="tipoa">
@@ -31,11 +31,11 @@
 
                     <div class="mb-3">
                     <label class="form-label">Frecuencia de medición: </label>
-                        <select class="form-select">
+                        <select class="form-select" name="frecuencia_mtto">
                             <option selected>Seleccione</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="1">F</option>
+                            <option value="2">G</option>
+                            <option value="3">H</option>
                         </select>
                     </div>
                 </div>

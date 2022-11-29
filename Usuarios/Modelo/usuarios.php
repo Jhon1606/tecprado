@@ -29,28 +29,28 @@ class usuarios extends conexion{
         return false;
     }
 
-    public function getNombre(){
-        return $_SESSION['Nombre'];
-    }
-
-    public function getId(){
-        return $_SESSION['Id'];
-    }
-
-    public function getPerfil(){
-        return $_SESSION['Perfil'];
-    }
-
-    public function validarSesion(){
-        if($_SESSION['Id']==null){
-            header('Location: ../../index.php'); 
+    public function addUser($nombre,$usuario,$password){
+     
+        $statement=$this->conexion->prepare("INSERT INTO usuarios(user_id,user_nombre,clave)
+                                            VALUES(:nombre,:usuario,:contrasena)");
+        $statement->bindParam(':nombre',$nombre);
+        $statement->bindParam(':usuario',$usuario);
+        $statement->bindParam(':contrasena',$password);
+        if($statement->execute()){
+            create_flash_message("Exitoso", "Registro exitoso","success");
+            header('Location: ../../index.php');
+        }else{
+            create_flash_message("Error", "Error al registrar","error");
+            header('Location: ../../register.php');
         }
+
     }
 
     public function salir(){
-        $_SESSION['Id'] = null;
-        $_SESSION['Nombre'] = null;
-        $_SESSION['Perfil'] = null;
+        // $_SESSION['Id'] = null;
+        // $_SESSION['Nombre'] = null;
+        // $_SESSION['Perfil'] = null;
+        session_start();
         session_destroy();
         header('Location: ../../index.php');
     }

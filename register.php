@@ -34,11 +34,15 @@
                 <div class="text-end">
                     <img src="" alt="">
                 </div>
-                <h2 class="fw-bold text_center py-5 text-center p-3">Inicio de sesión</h2>
+                <h2 class="fw-bold text_center py-5 text-center p-3">Registrarse</h2>
 
-                <!-- LOGIN -->
+                <!-- REGISTRO -->
 
-                <form action="Usuarios/Controlador/login.php" method="POST">
+                <form action="Usuarios/Controlador/register.php" method="POST">
+                    <div class="mb-4">
+                        <label for="nombre" class="form-label"> Nombre Completo</label>
+                        <input type="text" name="nombre" placeholder="Nombre Completo..." class="form-control">
+                    </div>
                     <div class="mb-4">
                         <label for="usuario" class="form-label"><i class="bi bi-person"></i> Usuario</label>
                         <input type="text" name="usuario" placeholder="Usuario..." class="form-control">
@@ -49,11 +53,11 @@
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
                     </div>
 
                     <div class="my-3">
-                        <span>No tienes cuenta? <a href="register.php">Registrate</a></span> <br>
+                        <span>Ya tienes cuenta? <a href="index.php">Inicia Sesión</a></span> <br>
                     </div>
                 </form>
             </div>

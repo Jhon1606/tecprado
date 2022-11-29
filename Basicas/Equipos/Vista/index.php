@@ -1,11 +1,11 @@
 <?php
     session_start();
-    error_reporting(0); 
+    error_reporting(0);
     require_once('../../../Helpers/alert.php');
-    require_once('../Modelo/ambiente.php');
+    require_once('../Modelo/equipos.php');
 
-    $modeloAmbiente= new ambiente();
-    $ambientes = $modeloAmbiente->get();
+    $modeloEquipo= new equipo();
+    $equipos = $modeloEquipo->get();
     if (isset($_SESSION['Nombre'])){
 ?>
 
@@ -18,8 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ambiente</title>
-    
+    <title>Equipos</title>
     <link rel="stylesheet" href="../../../Bootstrap/css/style.css">
     <link href="../../../Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -52,7 +51,6 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script> -->
     <script src="../../../Bootstrap/js/javascript.js"></script>
 
-
 </head>
 
 <body id="page-top">
@@ -72,9 +70,9 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h2>Ambientes</h2>
+                    <h2>Equipos</h2>
                     <div class="col p-2">
-                        <a href="javascript:void(0);" onclick="modalAgregar('Ambiente')" ><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Ambiente </button></a> 
+                        <a href="javascript:void(0);" onclick="modalAgregar('Equipo')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Equipo </button></a> 
                     </div>
 
                     <div class="table-responsive">
@@ -82,26 +80,43 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Codigo</th>
-                                    <th scope="col">Descripción del ambiente</th> 
                                     <th scope="col">Complejo</th> 
-                                    <th scope="col">Tipo de ambiente</th> 
+                                    <th scope="col">Ambiente</th> 
+                                    <th scope="col">Descripción</th> 
+                                    <th scope="col">Grupo</th> 
+                                    <th scope="col">Linea</th> 
+                                    <th scope="col">Serie</th> 
+                                    <th scope="col">Modelo</th> 
+                                    <th scope="col">Marca</th> 
+                                    <th scope="col">Observaciones</th>  
+                                    <th scope="col">Capacidad</th>  
+                                    <th scope="col">Estandar </th>  
+                                    
                                     <th scope="col"></th> 
                                 </tr>
                             </thead>
 
                             <tbody>
                             <?php         
-                                if($ambientes != null){ 
-                                    foreach($ambientes as $ambiente){
+                                if($equipos != null){ 
+                                    foreach($equipos as $equipo){
                             ?>
                                 <tr>
-                                    <th><?php echo $ambiente['codigo']; ?></th>
-                                    <td><?php echo $ambiente['descripcion']; ?></td>
-                                    <td><?php echo $ambiente['centro_costo']; ?></td>
-                                    <td><?php echo $ambiente['tipo_ubicacion']; ?></td>
+                                    <th><?php echo $equipo['codigo_eqp']; ?></th>
+                                    <td><?php echo $equipo['centro_costo']; ?></td>
+                                    <td><?php echo $equipo['ambiente']; ?></td>
+                                    <td><?php echo $equipo['descripcion']; ?></td>
+                                    <td><?php echo $equipo['codigo_grupo']; ?></td>
+                                    <td><?php echo $equipo['codigo_linea']; ?></td>
+                                    <td><?php echo $equipo['serie']; ?></td>
+                                    <td><?php echo $equipo['modelo']; ?></td>
+                                    <td><?php echo $equipo['marca']; ?></td>
+                                    <td><?php echo $equipo['observaciones']; ?></td>
+                                    <td><?php echo $equipo['codigo_und']; ?></td>
+                                    <td><?php echo $equipo['estandar_combustible']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="javascript:void(0);" onclick="modalEditarAmbiente('<?php echo $ambiente['codigo']; ?>')"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="javascript:void(0);" onclick="modalEliminar('<?php echo $ambiente['codigo']; ?>')"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEditar(<?php echo $equipo['codigo_eqp']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEliminar(<?php echo $equipo['codigo_eqp']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
                             <?php
@@ -173,11 +188,10 @@
     ?>
 
     <?php show_flash_messages() ?> 
-    
+
 </body>
 
 </html>
-
 <?php } else{
     header('Location: ../../../index.php');
 } ?>

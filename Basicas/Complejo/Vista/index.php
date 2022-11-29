@@ -7,6 +7,7 @@
 
     $modeloComplejo= new complejo();
     $complejos = $modeloComplejo->get();
+    if (isset($_SESSION['Nombre'])){
 ?>
 
 <!DOCTYPE html>
@@ -167,3 +168,6 @@
 </body>
 
 </html>
+<?Php } else{
+    header('Location: ../../../index.php');
+} ?>
