@@ -98,7 +98,7 @@
                                     <td><?php echo $grupo['estado']; ?></td>
                                     <td><?php echo $grupo['tipo_medicion']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="javascript:void(0);" onclick="modalEditar(<?php echo $grupo['codigo_gru']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEditarGrupo(<?php echo $grupo['codigo_gru']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
                                         <a href="javascript:void(0);" onclick="modalEliminar(<?php echo $grupo['codigo_gru']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>

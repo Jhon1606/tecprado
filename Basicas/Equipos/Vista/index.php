@@ -19,7 +19,6 @@
     <meta name="author" content="">
 
     <title>Equipos</title>
-    <link rel="stylesheet" href="../../../Bootstrap/css/style.css">
     <link href="../../../Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
@@ -115,8 +114,8 @@
                                     <td><?php echo $equipo['codigo_und']; ?></td>
                                     <td><?php echo $equipo['estandar_combustible']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="javascript:void(0);" onclick="modalEditar(<?php echo $equipo['codigo_eqp']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="javascript:void(0);" onclick="modalEliminar(<?php echo $equipo['codigo_eqp']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEditarEquipo('<?php echo $equipo['codigo_eqp']; ?>')"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEliminar('<?php echo $equipo['codigo_eqp']; ?>')"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
                             <?php

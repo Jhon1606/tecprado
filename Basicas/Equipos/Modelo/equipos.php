@@ -108,10 +108,23 @@ class equipo extends conexion{
         return $rows;
     }
 
+    public function verAmbientesPorComplejo($codigo){
+
+        $rows=null;
+        $statement=$this->conexion->prepare("SELECT * FROM ubicacion WHERE centro_costo=:codigo");
+        $statement->bindParam(":codigo",$codigo);
+        $statement->execute();
+        while($result=$statement->fetch()){
+            $rows[]=$result;
+        }
+        return $rows;
+    }
+
+
     public function getById($codigo){
 
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT * FROM grupo_equipo WHERE codigo_gru=:codigo");
+        $statement=$this->conexion->prepare("SELECT * FROM equipo WHERE codigo_eqp=:codigo");
         $statement->bindParam(":codigo",$codigo);
         $statement->execute();
         while($result=$statement->fetch()){
@@ -132,31 +145,42 @@ class equipo extends conexion{
         return false;
     }
 
-    public function update($codigo,$descripcion,$estado,$consecutivo,$tipo_medicion,$frecuencia_mtto){
-        $statement=$this->conexion->prepare("UPDATE grupo_equipo SET descripcion=:descripcion, estado=:estado,
-                                            consecutivo=:consecutivo,tipo_medicion=:tipo_medicion, frecuencia_mtto = :frecuencia_mtto WHERE codigo_gru = :codigo");
+    public function update($codigo_eqp,$centro_costo,$ambiente,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible){
+        $statement=$this->conexion->prepare("UPDATE equipo SET centro_costo=:centro_costo, ambiente=:ambiente, descripcion=:descripcion, codigo_grupo=:codigo_grupo,
+                                            codigo_linea=:codigo_linea, serie=:serie, modelo=:modelo, marca=:marca, observaciones=:observaciones, codigo_und=:codigo_und,
+                                            estandar_combustible=:estandar_combustible WHERE codigo_eqp = :codigo_eqp");
 
-         $statement->bindParam(':codigo',$codigo);
-         $statement->bindParam(':descripcion',$descripcion);
-         $statement->bindParam(':estado',$estado);
-         $statement->bindParam(':consecutivo',$consecutivo);
-         $statement->bindParam(':tipo_medicion',$tipo_medicion);
-         $statement->bindParam(':frecuencia_mtto',$frecuencia_mtto);
+        $statement->bindParam(':codigo_eqp',$codigo_eqp);
+        $statement->bindParam(':centro_costo',$centro_costo);
+        $statement->bindParam(':ambiente',$ambiente);
+        $statement->bindParam(':descripcion',$descripcion);
+        $statement->bindParam(':codigo_grupo',$codigo_grupo);
+        $statement->bindParam(':codigo_linea',$codigo_linea);
+        $statement->bindParam(':serie',$serie);
+        $statement->bindParam(':modelo',$modelo);
+        $statement->bindParam(':marca',$marca);
+        $statement->bindParam(':observaciones',$observaciones);
+        $statement->bindParam(':codigo_und',$codigo_und);
+        $statement->bindParam(':estandar_combustible',$estandar_combustible);
          
          if($statement->execute()){
+            create_flash_message("Exitoso", "Registro exitoso","success");
             header('Location: ../Vista/index.php');
          }else{
-             header('Location: ../Vista/edit.php');
+            create_flash_message("Error", "Error al editar","error");
+             header('Location: ../Vista/index.php');
          }
     }
 
     public function delete($codigo){
-        $statement=$this->conexion->prepare("DELETE FROM grupo_equipo WHERE codigo_gru = :codigo");
+        $statement=$this->conexion->prepare("DELETE FROM equipo WHERE codigo_eqp = :codigo");
         $statement->bindParam(":codigo",$codigo);
         if($statement->execute()){
+            create_flash_message("Exitoso", "Eliminado con exito","success");
             header('Location: ../Vista/index.php');
         }else{
-            header('Location: ../Vista/delete.php');
+            create_flash_message("Error", "Error al eliminar","error");
+            header('Location: ../Vista/index.php');
         }
     }
 }
