@@ -42,6 +42,25 @@ function modalEditarAmbiente(ideditar){
     });
 }
 
+function modalEditarGrupo(ideditar){ 
+    $.ajax({
+        url: "../../General/Queries/infogrupo.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {ideditar: ideditar}
+    })
+    .done(function(info){
+        var codigo_gru = info[0].codigo_gru;
+        var descripcion = info[0].descripcion;
+        var consecutivo = info[0].consecutivo;
+
+        $("#ideditar").val(codigo_gru);
+        $("#descripcion").val(descripcion);
+        $("#consecutivo").val(consecutivo);
+        $('#modalEditarGrupo').modal('show');
+    });
+}
+
 function modalEditarEquipo(ideditar){
     
     $.ajax({
@@ -81,7 +100,6 @@ function modalEditarEquipo(ideditar){
     });
 }
 
-
 function cargarAmbiente(complejo){
 
     $.ajax({
@@ -108,6 +126,56 @@ function cargarAmbienteEditar(complejo,ambiente){
     });
 }
 
+function modalEditarLinea(ideditar){
+    $.ajax({
+        url: "../../General/Queries/infolinea.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {ideditar: ideditar}
+    })
+    .done(function(info){
+        var codigo_linea = info[0].codigo_linea;
+        var descripcion = info[0].descripcion;
+
+        $("#ideditar").val(codigo_linea);
+        $("#descripcion").val(descripcion);
+        $('#modalEditarLinea').modal('show');
+    });
+}
+
+function modalEditarUnidad(ideditar){
+    $.ajax({
+        url: "../../General/Queries/infounidades.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {ideditar: ideditar}
+    })
+    .done(function(info){
+        var codigo_und = info[0].codigo_und;
+        var descripcion = info[0].descripcion;
+
+        $("#ideditar").val(codigo_und);
+        $("#descripcion").val(descripcion);
+        $('#modalEditarUnidades').modal('show');
+    });
+}
+
+function modalEditarTipo(ideditar){
+    $.ajax({
+        url: "../../General/Queries/infotipo.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {ideditar: ideditar}
+    })
+    .done(function(info){
+        var id = info[0].id;
+        var descripcion = info[0].descripcion;
+
+        $("#ideditar").val(id);
+        $("#descripcion").val(descripcion);
+        $('#modalEditarTipo').modal('show');
+    });
+}
 
 function modalEliminar(codigo){
 

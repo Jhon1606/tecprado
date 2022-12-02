@@ -9,9 +9,8 @@ if ($_POST) {
     $centro_costo = $_POST['centro_costo']; 
     $tipo_ubicacion = $_POST['tipo_ubicacion']; 
     $modeloAmbiente->existe($codigo);
-    
-    $modeloAmbiente->add($codigo,$descripcion,$centro_costo,$tipo_ubicacion);
    
+    $modeloAmbiente->add($codigo,$descripcion,$centro_costo,$tipo_ubicacion);
     }else{
         header('Location: ../../index.php');
     }

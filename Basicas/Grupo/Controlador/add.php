@@ -7,11 +7,9 @@ if ($_POST) {
     $codigo_gru = $_POST['codigo_gru'];
     $descripcion = strtoupper($_POST['descripcion']); 
     $consecutivo = $_POST['consecutivo']; 
-    $tipo_medicion = $_POST['tipo_medicion']; 
-    $frecuencia_mtto = $_POST['frecuencia_mtto']; 
-    $modeloGrupo->existe($codigo);
+    $modeloGrupo->existe($codigo_gru);
     
-    $modeloGrupo->add($codigo_gru,$descripcion,$consecutivo,$tipo_medicion,$frecuencia_mtto);
+    $modeloGrupo->add($codigo_gru,$descripcion,$consecutivo);
    
     }else{
         header('Location: ../../index.php');

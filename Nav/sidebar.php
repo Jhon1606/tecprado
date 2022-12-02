@@ -124,6 +124,9 @@
             <a class="collapse-item" href="../../Grupo/Vista/index.php">Grupo</a>
             <a class="collapse-item" href="../../Complejo/Vista/index.php">Complejos</a>
             <a class="collapse-item" href="../../Equipos/Vista/index.php">Equipos</a>
+            <a class="collapse-item" href="../../Linea/Vista/index.php">Linea de equipos</a>
+            <a class="collapse-item" href="../../Unidades/Vista/index.php">Unidades</a>
+            <a class="collapse-item" href="../../Tipo/Vista/index.php">Tipo de ambientes</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>

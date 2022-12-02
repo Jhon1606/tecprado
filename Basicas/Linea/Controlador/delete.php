@@ -1,13 +1,13 @@
 <?php
 
-require_once('../Modelo/grupo.php');
+require_once('../Modelo/linea.php');
 
 if ($_POST) {
-    $modeloGrupo = new grupo();
+    $modeloLinea = new linea();
 
     $codigo = $_POST['codigo'];
     
-    $modeloGrupo->delete($codigo);
+    $modeloLinea->delete($codigo);
     }else{
         header('Location: ../../index.php');
     }

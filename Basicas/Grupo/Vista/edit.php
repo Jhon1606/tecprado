@@ -10,33 +10,13 @@
             <form action="../Controlador/edit.php" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="Codigo..." id="codigo" name="codigo">
+                        <input class="form-control" type="text" placeholder="Codigo..." name="codigo_gru" id="ideditar">
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="Descripción..." id="codigo" name="descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción..." name="descripcion" id="descripcion">
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="Consecutivo..." id="codigo" name="consecutivo">
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="form-label">Tipo de medición: </label>
-                        <div class="col">
-                            <input class="form-control" type="text" name="tipo">
-                        </div>
-                        <div class="col">
-                            <input class="form-control" type="text" name="tipoa">
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                    <label class="form-label">Frecuencia de medición: </label>
-                        <select class="form-select" id="frecuencia_mtto" name="fecuencia_mtto">
-                            <option selected>Seleccione</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                        <input class="form-control" type="text" placeholder="Consecutivo..." name="consecutivo" id="consecutivo">
                     </div>
                 </div>
                 <div class="modal-footer">

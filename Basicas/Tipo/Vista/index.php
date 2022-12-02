@@ -1,11 +1,11 @@
 <?php
     session_start();
-    error_reporting(0);
+    error_reporting(0); 
     require_once('../../../Helpers/alert.php');
-    require_once('../Modelo/grupo.php');
+    require_once('../Modelo/tipo.php');
 
-    $modeloGrupo= new grupo();
-    $grupos = $modeloGrupo->get();
+    $modeloTipo= new tipo();
+    $tipos = $modeloTipo->get();
     if (isset($_SESSION['Nombre'])){
 ?>
 
@@ -18,7 +18,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grupos de equipos</title>
+    <title>Tipo de ambiente</title>
+    
     <link href="../../../Bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
@@ -50,6 +51,7 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="noopener"></script> -->
     <script src="../../../Bootstrap/js/javascript.js"></script>
 
+
 </head>
 
 <body id="page-top">
@@ -69,34 +71,32 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h2>Grupos de equipos</h2>
+                    <h2>Tipo de ambientes</h2>
                     <div class="col p-2">
-                        <a href="javascript:void(0);" onclick="modalAgregar('Grupo')"><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Grupo </button></a> 
+                        <a href="javascript:void(0);" onclick="modalAgregar('Tipo')" ><button type="button" class="btn btn-info" title="Añadir"><i class="bi bi-plus-lg"></i> Agregar Tipo</button></a> 
                     </div>
 
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">Codigo</th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Descripción</th> 
-                                    <th scope="col">Consecutivo</th> 
                                     <th scope="col"></th> 
                                 </tr>
                             </thead>
 
                             <tbody>
                             <?php         
-                                if($grupos != null){ 
-                                    foreach($grupos as $grupo){
+                                if($tipos != null){ 
+                                    foreach($tipos as $tipo){
                             ?>
                                 <tr>
-                                    <th><?php echo $grupo['codigo_gru']; ?></th>
-                                    <td><?php echo $grupo['descripcion']; ?></td>
-                                    <td><?php echo $grupo['consecutivo']; ?></td>
+                                    <th><?php echo $tipo['id']; ?></th>
+                                    <td><?php echo $tipo['descripcion']; ?></td>
                                     <td style="text-align:right;">
-                                        <a href="javascript:void(0);" onclick="modalEditarGrupo(<?php echo $grupo['codigo_gru']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
-                                        <a href="javascript:void(0);" onclick="modalEliminar(<?php echo $grupo['codigo_gru']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEditarTipo(<?php echo $tipo['id']; ?>)"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalEliminar(<?php echo $tipo['id']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
                                     </td>
                                 </tr>
                             <?php
@@ -168,10 +168,11 @@
     ?>
 
     <?php show_flash_messages() ?> 
-
+    
 </body>
 
 </html>
+
 <?php } else{
     header('Location: ../../../index.php');
 } ?>

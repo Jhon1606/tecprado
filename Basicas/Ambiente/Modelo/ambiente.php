@@ -10,7 +10,7 @@ class ambiente extends conexion{
     }   
 
     public function add($codigo,$descripcion,$centro_costo,$tipo_ubicacion){
-    $statement=$this->conexion->prepare("INSERT INTO ubicacion(codigo,descripcion,centro_costo,tipo_ubicacion)
+    $statement=$this->conexion->prepare("INSERT INTO ubicacion (codigo,descripcion,centro_costo,tipo_ubicacion)
                                         VALUES(:codigo,:descripcion,:centro_costo,:tipo_ubicacion)");
     $statement->bindParam(':codigo',$codigo);
     $statement->bindParam(':descripcion',$descripcion);
