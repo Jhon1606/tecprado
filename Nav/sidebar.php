@@ -37,8 +37,9 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <!-- <a class="collapse-item" href="buttons.html">Buttons</a>
+            <a class="collapse-item" href="cards.html">Cards</a> -->
+            <a class="collapse-item" href="../../../Mantenimiento/Equipos/Vista/index.php">Equipos</a>
         </div>
     </div>
 </li>
@@ -120,17 +121,16 @@
     <div id="collapseBasicas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="../../Ambiente/Vista/index.php">Ambiente</a>
-            <a class="collapse-item" href="../../Grupo/Vista/index.php">Grupo</a>
-            <a class="collapse-item" href="../../Complejo/Vista/index.php">Complejos</a>
-            <a class="collapse-item" href="../../Equipos/Vista/index.php">Equipos</a>
-            <a class="collapse-item" href="../../Linea/Vista/index.php">Linea de equipos</a>
-            <a class="collapse-item" href="../../Unidades/Vista/index.php">Unidades</a>
-            <a class="collapse-item" href="../../Tipo/Vista/index.php">Tipo de ambientes</a>
-            <div class="collapse-divider"></div>
+            <a class="collapse-item" href="../../../Basicas/Ambiente/Vista/index.php">Ambiente</a>
+            <a class="collapse-item" href="../../../Basicas/Grupo/Vista/index.php">Grupo</a>
+            <a class="collapse-item" href="../../../Basicas/Complejo/Vista/index.php">Complejos</a>
+            <a class="collapse-item" href="../../../Basicas/Linea/Vista/index.php">Linea de equipos</a>
+            <a class="collapse-item" href="../../../Basicas/Unidades/Vista/index.php">Unidades</a>
+            <a class="collapse-item" href="../../../Basicas/Tipo/Vista/index.php">Tipo de ambientes</a>
+            <!-- <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <a class="collapse-item" href="blank.html">Blank Page</a> -->
         </div>
     </div>
 </li>

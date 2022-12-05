@@ -94,39 +94,39 @@
                                 <label class="form-label">Modelo</label>
                                 <input class="form-control" type="text" placeholder="Modelo..." name="modelo" id="modelo">
                             </div>
+                            <div class="col">
+                                <label class="form-label">Marca</label>
+                                <input class="form-control" type="text" placeholder="Marca..." name="marca" id="marca">
+                            </div>
                         </div>
-                    </div>
-            
-                    <div class="mb-3">
-                        <label class="form-label">Marca</label>
-                        <input class="form-control" type="text" placeholder="Marca..." name="marca" id="marca">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Observaciones</label>
                         <textarea class="form-control" name="observaciones" id="observaciones" rows="3"></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Capacidad </label>
-                        <select class="form-select" name="codigo_und" id="codigo_und">
-                            <option value="">Seleccione</option>
-                            <?php
-                            $capacidades= $modeloEquipo->getCapacidad();
-
-                            if($capacidades != null){
-                                foreach($capacidades as $capacidad){
-                                ?>
-                                <option value="<?php echo $capacidad['codigo_und']; ?>"><?php echo $capacidad['descripcion']; ?></option>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label">Capacidad </label>
+                            <select class="form-select" name="codigo_und" id="codigo_und">
+                                <option value="">Seleccione</option>
                                 <?php
+                                $capacidades= $modeloEquipo->getCapacidad();
+
+                                if($capacidades != null){
+                                    foreach($capacidades as $capacidad){
+                                    ?>
+                                    <option value="<?php echo $capacidad['codigo_und']; ?>"><?php echo $capacidad['descripcion']; ?></option>
+                                    <?php
+                                    }
                                 }
-                            }
-                            ?>  
-                        </select>
+                                ?>  
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Estandar de consumo</label>
+                            <input class="form-control" type="text" placeholder="Estandar de consumo..." name="estandar_combustible" id="estandar_combustible">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Estandar de consumo</label>
-                        <input class="form-control" type="text" placeholder="Estandar de consumo..." name="estandar_combustible" id="estandar_combustible">
-                    </div>
-                </div>
                 <div class="modal-footer">
                     <a href="index.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cerrar</button></a> 
                     <button type="submit" id="btnGuardar" class="btn btn-primary">Guardar</button>
