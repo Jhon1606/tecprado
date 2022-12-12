@@ -8,7 +8,7 @@
             </div>
             <!-- Formulario -->
             <form action="../Controlador/delete.php" method="POST" >
-                <input type="hidden" id="codigo" name="codigo">
+                <input type="hidden" id="codigo" name="id">
                 <div class="modal-body">
                     ¿Está seguro que desea eliminar el equipo?
                 </div>

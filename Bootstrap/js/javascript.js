@@ -73,6 +73,7 @@ function modalEditarEquipo(ideditar){
         var codigo_eqp = info[0].codigo_eqp;
         var centro_costo = info[0].centro_costo;
         var ambiente = info[0].ambiente;
+        var habitacion = info[0].habitacion;
         var descripcion = info[0].descripcion;
         var codigo_grupo = info[0].codigo_grupo;
         var codigo_linea = info[0].codigo_linea;
@@ -83,10 +84,11 @@ function modalEditarEquipo(ideditar){
         var codigo_und = info[0].codigo_und;
         var estandar_combustible = info[0].estandar_combustible;
         
-
+        
         $("#ideditar").val(codigo_eqp);
         $("#centro_costo").val(centro_costo);
         cargarAmbienteEditar(centro_costo,ambiente);
+        cargarHabitacionEditar(ambiente,habitacion);
         $("#descripcion").val(descripcion);
         $("#codigo_grupo").val(codigo_grupo);
         $("#codigo_linea").val(codigo_linea);
@@ -101,7 +103,6 @@ function modalEditarEquipo(ideditar){
 }
 
 function cargarAmbiente(complejo){
-
     $.ajax({
         url: "../../General/Queries/filtroambiente.php",
         type: "POST",
@@ -114,14 +115,37 @@ function cargarAmbiente(complejo){
 }
 
 function cargarAmbienteEditar(complejo,ambiente){
-
     $.ajax({
-        url: "../../General/Queries/filtroambiente.php",
+        url: "../../General/Queries/filtroeditarambiente.php",
         type: "POST",
         dataType: "HTML",
         data: {complejo: complejo, ambiente: ambiente},
         success: function(selectAmbiente){
             $('#editarAmbiente').html(selectAmbiente);
+        }
+    });
+}
+
+function cargarHabitacion(ambiente){
+    $.ajax({
+        url: "../../General/Queries/filtrohabitacion.php",
+        type: "POST",
+        dataType: "HTML",
+        data: {ambiente: ambiente},
+        success: function(selectHabitacion){
+            $('#crearHabitacion').html(selectHabitacion);
+        }
+    });
+}
+
+function cargarHabitacionEditar(ambiente,habitacion){
+    $.ajax({
+        url: "../../General/Queries/filtrohabitacion.php",
+        type: "POST",
+        dataType: "HTML",
+        data: {ambiente: ambiente, habitacion: habitacion},
+        success: function(selectHabitacion){
+            $('#editarHabitacion').html(selectHabitacion);
         }
     });
 }
@@ -178,7 +202,7 @@ function modalEditarTipo(ideditar){
 }
 
 function modalEliminar(codigo){
-
+    alert(codigo);
     $("#codigo").val(codigo);
     $('#myModalEliminar').modal('show');
 }

@@ -8,6 +8,7 @@ if ($_POST) {
     $codigo_eqp = $_POST['codigo_eqp'];
     $centro_costo = $_POST['centro_costo']; 
     $ambiente = $_POST['ambiente']; 
+    $habitacion = $_POST['habitacion']; 
     $descripcion = strtoupper($_POST['descripcion']); 
     $codigo_grupo = $_POST['codigo_grupo']; 
     $codigo_linea = $_POST['codigo_linea']; 
@@ -18,7 +19,7 @@ if ($_POST) {
     $codigo_und = $_POST['codigo_und']; 
     $estandar_combustible = $_POST['estandar_combustible']; 
     
-    $modeloEquipo->update($codigo_eqp,$centro_costo,$ambiente,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible);
+    $modeloEquipo->update($codigo_eqp,$centro_costo,$ambiente,$habitacion,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible);
     }else{
         header('Location: ../Vista/index.php');
     }

@@ -19,13 +19,6 @@
         <span>Dashboard</span></a>
 </li>
 
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-    Interface
-</div>
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
@@ -36,7 +29,7 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
+            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
             <!-- <a class="collapse-item" href="buttons.html">Buttons</a>
             <a class="collapse-item" href="cards.html">Cards</a> -->
             <a class="collapse-item" href="../../../Mantenimiento/Equipos/Vista/index.php">Equipos</a>
@@ -44,7 +37,7 @@
     </div>
 </li>
 
-<!-- Nav Item - Utilities Collapse Menu -->
+<!-- Nav Item - Utilities Collapse Menu
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
@@ -61,17 +54,9 @@
             <a class="collapse-item" href="utilities-other.html">Other</a>
         </div>
     </div>
-</li>
+</li> -->
 
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-    Addons
-</div>
-
-<!-- Nav Item - Pages Collapse Menu -->
+<!-- Nav Item - Pages Collapse Menu
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes"
         aria-expanded="true" aria-controls="collapseReportes">
@@ -90,9 +75,9 @@
             <a class="collapse-item" href="blank.html">Blank Page</a>
         </div>
     </div>
-</li>
+</li> -->
 
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEstadisticas"
         aria-expanded="true" aria-controls="collapseEstadisticas">
         <i class="fas fa-fw fa-folder"></i>
@@ -110,7 +95,7 @@
             <a class="collapse-item" href="blank.html">Blank Page</a>
         </div>
     </div>
-</li>
+</li> -->
 
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBasicas"
@@ -120,7 +105,7 @@
     </a>
     <div id="collapseBasicas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
+            <!-- <h6 class="collapse-header">Login Screens:</h6> -->
             <a class="collapse-item" href="../../../Basicas/Ambiente/Vista/index.php">Ambiente</a>
             <a class="collapse-item" href="../../../Basicas/Grupo/Vista/index.php">Grupo</a>
             <a class="collapse-item" href="../../../Basicas/Complejo/Vista/index.php">Complejos</a>
@@ -135,7 +120,7 @@
     </div>
 </li>
 
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventarios"
         aria-expanded="true" aria-controls="collapseInventarios">
         <i class="fas fa-fw fa-folder"></i>
@@ -153,8 +138,8 @@
             <a class="collapse-item" href="blank.html">Blank Page</a>
         </div>
     </div>
-</li>
-
+</li> -->
+<!-- 
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAromero"
         aria-expanded="true" aria-controls="collapseAromero">
@@ -173,7 +158,7 @@
             <a class="collapse-item" href="blank.html">Blank Page</a>
         </div>
     </div>
-</li>
+</li> -->
 
 <!-- Nav Item - Charts
 <li class="nav-item">

@@ -9,12 +9,13 @@ class equipo extends conexion{
         $this->conexion=parent::__construct();
     }   
 
-    public function add($codigo_eqp,$centro_costo,$ambiente,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible){
-    $statement=$this->conexion->prepare("INSERT INTO equipo(codigo_eqp,centro_costo,ambiente,descripcion,codigo_grupo,codigo_linea,serie,modelo,marca,observaciones,codigo_und,estandar_combustible)
-                                        VALUES(:codigo_eqp,:centro_costo,:ambiente,:descripcion,:codigo_grupo,:codigo_linea,:serie,:modelo,:marca,:observaciones,:codigo_und,:estandar_combustible)");
+    public function add($codigo_eqp,$centro_costo,$ambiente,$habitacion,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible,$fecha_ultimo_mtto){
+    $statement=$this->conexion->prepare("INSERT INTO equipo(codigo_eqp,centro_costo,ambiente,habitacion,descripcion,codigo_grupo,codigo_linea,serie,modelo,marca,observaciones,codigo_und,estandar_combustible,fecha_ultimo_mtto)
+                                        VALUES(:codigo_eqp,:centro_costo,:ambiente,:habitacion,:descripcion,:codigo_grupo,:codigo_linea,:serie,:modelo,:marca,:observaciones,:codigo_und,:estandar_combustible,:fecha_ultimo_mtto)");
     $statement->bindParam(':codigo_eqp',$codigo_eqp);
     $statement->bindParam(':centro_costo',$centro_costo);
     $statement->bindParam(':ambiente',$ambiente);
+    $statement->bindParam(':habitacion',$habitacion);
     $statement->bindParam(':descripcion',$descripcion);
     $statement->bindParam(':codigo_grupo',$codigo_grupo);
     $statement->bindParam(':codigo_linea',$codigo_linea);
@@ -24,6 +25,7 @@ class equipo extends conexion{
     $statement->bindParam(':observaciones',$observaciones);
     $statement->bindParam(':codigo_und',$codigo_und);
     $statement->bindParam(':estandar_combustible',$estandar_combustible);
+    $statement->bindParam(':fecha_ultimo_mtto',$fecha_ultimo_mtto);
     if($statement->execute()){
         create_flash_message("Exitoso", "Registro exitoso","success");
         header('Location: ../Vista/index.php');
@@ -36,16 +38,15 @@ class equipo extends conexion{
   
     public function get(){
         $rows=null;
-        $statement=$this->conexion->prepare("SELECT a.codigo_eqp, b.descripcion AS centro_costo, c.descripcion AS ambiente, a.descripcion, 
+        $statement=$this->conexion->prepare("SELECT a.codigo_eqp, b.descripcion AS centro_costo, c.descripcion AS ambiente, a.habitacion, a.descripcion, 
                                             d.descripcion AS codigo_grupo, e.descripcion AS codigo_linea, a.serie, a.modelo, a.marca, a.observaciones,
-                                            f.descripcion AS codigo_und, a.estandar_combustible
+                                            a.fecha_ultimo_mtto, f.descripcion AS codigo_und, a.estandar_combustible
                                             FROM equipo AS a 
                                             INNER JOIN centros_costos AS b ON a.centro_costo = b.codigo
                                             INNER JOIN ubicacion AS c ON a.ambiente = c.id
                                             INNER JOIN grupo_equipo AS d ON a.codigo_grupo = d.codigo_gru
                                             INNER JOIN linea_equipos AS e ON a.codigo_linea= e.codigo_linea
                                             INNER JOIN unidades AS f ON a.codigo_und= f.codigo_und");
-        
         $statement->execute();
         while($result=$statement->fetch()){
             $rows[]=$result;
@@ -108,6 +109,17 @@ class equipo extends conexion{
         return $rows;
     }
 
+    public function getHabitacion(){
+
+        $rows=null;
+        $statement=$this->conexion->prepare("SELECT * FROM habitaciones");
+        $statement->execute();
+        while($result=$statement->fetch()){
+            $rows[]=$result;
+        }
+        return $rows;
+    }
+
     public function verAmbientesPorComplejo($codigo){
 
         $rows=null;
@@ -119,6 +131,19 @@ class equipo extends conexion{
         }
         return $rows;
     }
+
+    public function verParametroPorAmbiente($codigo){
+
+        $rows=null;
+        $statement=$this->conexion->prepare("SELECT * FROM parametros WHERE valor=:codigo");
+        $statement->bindParam(":codigo",$codigo);
+        $statement->execute();
+        while($result=$statement->fetch()){
+            $rows[]=$result;
+        }
+        return $rows;
+    }
+
 
 
     public function getById($codigo){
@@ -145,14 +170,15 @@ class equipo extends conexion{
         return false;
     }
 
-    public function update($codigo_eqp,$centro_costo,$ambiente,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible){
-        $statement=$this->conexion->prepare("UPDATE equipo SET centro_costo=:centro_costo, ambiente=:ambiente, descripcion=:descripcion, codigo_grupo=:codigo_grupo,
+    public function update($codigo_eqp,$centro_costo,$ambiente,$habitacion,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible,$fecha_ultimo_mtto){
+        $statement=$this->conexion->prepare("UPDATE equipo SET centro_costo=:centro_costo, ambiente=:ambiente, habitacion=:habitacion descripcion=:descripcion, codigo_grupo=:codigo_grupo,
                                             codigo_linea=:codigo_linea, serie=:serie, modelo=:modelo, marca=:marca, observaciones=:observaciones, codigo_und=:codigo_und,
-                                            estandar_combustible=:estandar_combustible WHERE codigo_eqp = :codigo_eqp");
+                                            estandar_combustible=:estandar_combustible, fecha_ultimo_mtto=:fecha_ultimo_mtto WHERE codigo_eqp = :codigo_eqp");
 
         $statement->bindParam(':codigo_eqp',$codigo_eqp);
         $statement->bindParam(':centro_costo',$centro_costo);
         $statement->bindParam(':ambiente',$ambiente);
+        $statement->bindParam(':habitacion',$habitacion);
         $statement->bindParam(':descripcion',$descripcion);
         $statement->bindParam(':codigo_grupo',$codigo_grupo);
         $statement->bindParam(':codigo_linea',$codigo_linea);
@@ -162,6 +188,7 @@ class equipo extends conexion{
         $statement->bindParam(':observaciones',$observaciones);
         $statement->bindParam(':codigo_und',$codigo_und);
         $statement->bindParam(':estandar_combustible',$estandar_combustible);
+        $statement->bindParam(':fecha_ultimo_mtto',$fecha_ultimo_mtto);
          
          if($statement->execute()){
             create_flash_message("Exitoso", "Registro exitoso","success");

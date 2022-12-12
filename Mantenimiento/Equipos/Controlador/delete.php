@@ -5,9 +5,9 @@ require_once('../Modelo/equipos.php');
 if ($_POST) {
     $modeloEquipo = new equipo();
 
-    $codigo = $_POST['codigo'];
+    $id = $_POST['id'];
     
-    $modeloEquipo->delete($codigo);
+    $modeloEquipo->delete($id);
     }else{
         header('Location: ../../index.php');
     }

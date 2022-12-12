@@ -37,6 +37,11 @@
                             
                                 </div>
                             </div>
+                            <div class="col">
+                                <div id="editarHabitacion">
+                            
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -127,6 +132,11 @@
                             <input class="form-control" type="text" placeholder="Estandar de consumo..." name="estandar_combustible" id="estandar_combustible">
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="form-label">Ultimo mtto</label>
+                        <input class="form-control" type="date" name="fecha_ultimo_mtto" id="fecha_ultimo_mtto">
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <a href="index.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cerrar</button></a> 
                     <button type="submit" id="btnGuardar" class="btn btn-primary">Guardar</button>

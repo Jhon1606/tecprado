@@ -16,6 +16,7 @@ if ($informacionEquipo != null){
                             "codigo_eqp"=>$infoEquipo["codigo_eqp"],
                             "centro_costo"=>$infoEquipo["centro_costo"],
                             "ambiente"=>$infoEquipo["ambiente"],
+                            "habitacion"=>$infoEquipo["habitacion"],
                             "descripcion"=>$infoEquipo["descripcion"],
                             "codigo_grupo"=>$infoEquipo["codigo_grupo"],
                             "codigo_linea"=>$infoEquipo["codigo_linea"],
@@ -25,6 +26,7 @@ if ($informacionEquipo != null){
                             "observaciones"=>$infoEquipo["observaciones"],
                             "codigo_und"=>$infoEquipo["codigo_und"],
                             "estandar_combustible"=>$infoEquipo["estandar_combustible"], 
+                            "fecha_ultimo_mtto"=>$infoEquipo["fecha_ultimo_mtto"] 
                         );
     }
 }

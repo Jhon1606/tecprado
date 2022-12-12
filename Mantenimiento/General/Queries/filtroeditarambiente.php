@@ -9,7 +9,7 @@ $ModeloAmbientesC = new equipo();
 $InformacionAmbientes = $ModeloAmbientesC->verAmbientesPorComplejo($complejo);
 
 $selectAmbiente = "<label class='form-label'>Ambiente</label>";
-$selectAmbiente .= "<select class='form-select' name='ambiente' id='ambiente' onchange='cargarHabitacion(this.value)'>";
+$selectAmbiente .= "<select class='form-select' name='ambiente' id='ambiente' onchange='cargarHabitacionEditar(this.value,'')'>";
 
 if($InformacionAmbientes != null){
 

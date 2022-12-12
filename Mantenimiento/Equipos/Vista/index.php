@@ -81,16 +81,14 @@
                                     <th scope="col">Codigo</th>
                                     <th scope="col">Complejo</th> 
                                     <th scope="col">Ambiente</th> 
+                                    <th scope="col">Hab</th> 
                                     <th scope="col">Descripción</th> 
                                     <th scope="col">Grupo</th> 
                                     <th scope="col">Linea</th> 
                                     <th scope="col">Serie</th> 
                                     <th scope="col">Modelo</th> 
                                     <th scope="col">Marca</th> 
-                                    <th scope="col">Observaciones</th>  
-                                    <th scope="col">Capacidad</th>  
-                                    <th scope="col">Estandar </th>  
-                                    
+                                    <th scope="col">Ultimo mtto</th> 
                                     <th scope="col"></th> 
                                 </tr>
                             </thead>
@@ -104,15 +102,14 @@
                                     <th><?php echo $equipo['codigo_eqp']; ?></th>
                                     <td><?php echo $equipo['centro_costo']; ?></td>
                                     <td><?php echo $equipo['ambiente']; ?></td>
+                                    <td><?php echo $equipo['habitacion']; ?></td>
                                     <td><?php echo $equipo['descripcion']; ?></td>
                                     <td><?php echo $equipo['codigo_grupo']; ?></td>
                                     <td><?php echo $equipo['codigo_linea']; ?></td>
                                     <td><?php echo $equipo['serie']; ?></td>
                                     <td><?php echo $equipo['modelo']; ?></td>
                                     <td><?php echo $equipo['marca']; ?></td>
-                                    <td><?php echo $equipo['observaciones']; ?></td>
-                                    <td><?php echo $equipo['codigo_und']; ?></td>
-                                    <td><?php echo $equipo['estandar_combustible']; ?></td>
+                                    <td><?php echo $equipo['fecha_ultimo_mtto']; ?></td>
                                     <td style="text-align:right;">
                                         <a href="javascript:void(0);" onclick="modalEditarEquipo('<?php echo $equipo['codigo_eqp']; ?>')"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
                                         <a href="javascript:void(0);" onclick="modalEliminar('<?php echo $equipo['codigo_eqp']; ?>')"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
