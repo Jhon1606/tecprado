@@ -2,6 +2,7 @@
 session_start();
 require_once("../../../conexion.php");
 require_once("../../../Helpers/alert.php");
+require_once("../../General/Upload/upload.php");
 
 class equipo extends conexion{
 
@@ -10,30 +11,49 @@ class equipo extends conexion{
     }   
 
     public function add($codigo_eqp,$centro_costo,$ambiente,$habitacion,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible,$fecha_ultimo_mtto){
-    $statement=$this->conexion->prepare("INSERT INTO equipo(codigo_eqp,centro_costo,ambiente,habitacion,descripcion,codigo_grupo,codigo_linea,serie,modelo,marca,observaciones,codigo_und,estandar_combustible,fecha_ultimo_mtto)
-                                        VALUES(:codigo_eqp,:centro_costo,:ambiente,:habitacion,:descripcion,:codigo_grupo,:codigo_linea,:serie,:modelo,:marca,:observaciones,:codigo_und,:estandar_combustible,:fecha_ultimo_mtto)");
-    $statement->bindParam(':codigo_eqp',$codigo_eqp);
-    $statement->bindParam(':centro_costo',$centro_costo);
-    $statement->bindParam(':ambiente',$ambiente);
-    $statement->bindParam(':habitacion',$habitacion);
-    $statement->bindParam(':descripcion',$descripcion);
-    $statement->bindParam(':codigo_grupo',$codigo_grupo);
-    $statement->bindParam(':codigo_linea',$codigo_linea);
-    $statement->bindParam(':serie',$serie);
-    $statement->bindParam(':modelo',$modelo);
-    $statement->bindParam(':marca',$marca);
-    $statement->bindParam(':observaciones',$observaciones);
-    $statement->bindParam(':codigo_und',$codigo_und);
-    $statement->bindParam(':estandar_combustible',$estandar_combustible);
-    $statement->bindParam(':fecha_ultimo_mtto',$fecha_ultimo_mtto);
-    if($statement->execute()){
-        create_flash_message("Exitoso", "Registro exitoso","success");
-        header('Location: ../Vista/index.php');
-    }else{
-        create_flash_message("Error", "Error al registrar","error");
-        header('Location: ../Vista/index.php');
+        $statement=$this->conexion->prepare("INSERT INTO equipo(codigo_eqp,centro_costo,ambiente,habitacion,descripcion,codigo_grupo,codigo_linea,serie,modelo,marca,observaciones,codigo_und,estandar_combustible,fecha_ultimo_mtto)
+                                            VALUES(:codigo_eqp,:centro_costo,:ambiente,:habitacion,:descripcion,:codigo_grupo,:codigo_linea,:serie,:modelo,:marca,:observaciones,:codigo_und,:estandar_combustible,:fecha_ultimo_mtto)");
+        $statement->bindParam(':codigo_eqp',$codigo_eqp);
+        $statement->bindParam(':centro_costo',$centro_costo);
+        $statement->bindParam(':ambiente',$ambiente);
+        $statement->bindParam(':habitacion',$habitacion);
+        $statement->bindParam(':descripcion',$descripcion);
+        $statement->bindParam(':codigo_grupo',$codigo_grupo);
+        $statement->bindParam(':codigo_linea',$codigo_linea);
+        $statement->bindParam(':serie',$serie);
+        $statement->bindParam(':modelo',$modelo);
+        $statement->bindParam(':marca',$marca);
+        $statement->bindParam(':observaciones',$observaciones);
+        $statement->bindParam(':codigo_und',$codigo_und);
+        $statement->bindParam(':estandar_combustible',$estandar_combustible);
+        $statement->bindParam(':fecha_ultimo_mtto',$fecha_ultimo_mtto);
+        if($statement->execute()){
+            create_flash_message("Exitoso", "Registro exitoso","success");
+            header('Location: ../Vista/index.php');
+        }else{
+            create_flash_message("Error", "Error al registrar","error");
+            header('Location: ../Vista/index.php');
+        }
     }
 
+    public function addArchivo($codigo,$nomdocumento,$comentario,$archivo){
+        $statement=$this->conexion->prepare("INSERT INTO equipos_doc (codigo, nomdocumento, comentario, archivo)
+                                            VALUES(:codigo, :nomdocumento, :comentario, archivo)");
+        
+        $modeloUpload = new upload();
+        $nombreArchivo = $modeloUpload->subirArchivo('Archivo'. $nomdocumento, $archivo);
+    
+        $statement->bindParam(':codigo',$codigo);
+        $statement->bindParam(':nomdocumento',$nomdocumento);
+        $statement->bindParam(':comentario', $comentario);
+        $statement->bindParam(':archivo', $nombreArchivo);
+    
+        if($statement->execute()){
+            header('Location: ../Vista/index.php');
+        }else{
+            header('Location: ../Vista/add.php');
+        }
+    
     }
   
     public function get(){
@@ -171,7 +191,7 @@ class equipo extends conexion{
     }
 
     public function update($codigo_eqp,$centro_costo,$ambiente,$habitacion,$descripcion,$codigo_grupo,$codigo_linea,$serie,$modelo,$marca,$observaciones,$codigo_und,$estandar_combustible,$fecha_ultimo_mtto){
-        $statement=$this->conexion->prepare("UPDATE equipo SET centro_costo=:centro_costo, ambiente=:ambiente, habitacion=:habitacion descripcion=:descripcion, codigo_grupo=:codigo_grupo,
+        $statement=$this->conexion->prepare("UPDATE equipo SET centro_costo=:centro_costo, ambiente=:ambiente, habitacion=:habitacion, descripcion=:descripcion, codigo_grupo=:codigo_grupo,
                                             codigo_linea=:codigo_linea, serie=:serie, modelo=:modelo, marca=:marca, observaciones=:observaciones, codigo_und=:codigo_und,
                                             estandar_combustible=:estandar_combustible, fecha_ultimo_mtto=:fecha_ultimo_mtto WHERE codigo_eqp = :codigo_eqp");
 

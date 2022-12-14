@@ -133,8 +133,8 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="form-label">Ultimo mtto</label>
-                        <input class="form-control" type="date" name="fecha_ultimo_mtto" id="fecha_ultimo_mtto">
+                        <label for="form-label">Fecha último mantenimiento</label>
+                        <input class="form-control" type="date" name="fecha_ultimo_mtto" id="fecha_ultimo_mtto" max="<?php echo date('Y-m-d')?>">
                     </div>
                 </div>
                 <div class="modal-footer">

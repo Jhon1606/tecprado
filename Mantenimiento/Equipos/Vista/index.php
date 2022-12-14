@@ -113,6 +113,7 @@
                                     <td style="text-align:right;">
                                         <a href="javascript:void(0);" onclick="modalEditarEquipo('<?php echo $equipo['codigo_eqp']; ?>')"><button type="button" class="btn btn-success my-1" title="Editar"><i class="bi bi-pencil-fill"></i> </button></a>
                                         <a href="javascript:void(0);" onclick="modalEliminar('<?php echo $equipo['codigo_eqp']; ?>')"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> </button></a>
+                                        <a href="javascript:void(0);" onclick="modalSubirArchivo('<?php echo $equipo['codigo_eqp']; ?>')"><button type="button" class="btn btn-light my-1" title="Subir Archivo"><i class="bi bi-capslock-fill"></i> </button></a>
                                     </td>
                                 </tr>
                             <?php
@@ -181,6 +182,10 @@
 
     <?php
         require_once('delete.php');
+    ?>
+
+<?php
+        require_once('file.php');
     ?>
 
     <?php show_flash_messages() ?> 

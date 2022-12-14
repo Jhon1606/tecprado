@@ -83,7 +83,7 @@ function modalEditarEquipo(ideditar){
         var observaciones = info[0].observaciones;
         var codigo_und = info[0].codigo_und;
         var estandar_combustible = info[0].estandar_combustible;
-        
+        var fecha_ultimo_mtto = info[0].fecha_ultimo_mtto;
         
         $("#ideditar").val(codigo_eqp);
         $("#centro_costo").val(centro_costo);
@@ -98,6 +98,7 @@ function modalEditarEquipo(ideditar){
         $("#observaciones").val(observaciones);
         $("#codigo_und").val(codigo_und);
         $("#estandar_combustible").val(estandar_combustible);
+        $("#fecha_ultimo_mtto").val(fecha_ultimo_mtto);
         $('#modalEditarEquipo').modal('show');
     });
 }
@@ -148,6 +149,11 @@ function cargarHabitacionEditar(ambiente,habitacion){
             $('#editarHabitacion').html(selectHabitacion);
         }
     });
+}
+
+function modalSubirArchivo(idfile){
+    $('#idfile').val(idfile);
+    $('#modalArchivo').modal('show');
 }
 
 function modalEditarLinea(ideditar){
