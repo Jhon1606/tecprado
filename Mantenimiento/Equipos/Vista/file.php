@@ -7,20 +7,20 @@
                 <a href="index.php"> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
             </div>
             <!-- Formulario -->
-            <form action="../Controlador/add.php" method="POST">
+            <form action="../Controlador/file.php" method="POST">
                 <div class="modal-body">
-                    <input type="hidden" id="codigo" name="equipo">
+                    <input type="hidden" id="equipo" name="equipo">
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input class="form-control" type="file" name="nomdocumento">
+                        <input class="form-control" type="text" name="nomdocumento">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Comentario</label>
-                        <input class="form-control" type="file" name="comentario">
+                        <input class="form-control" type="text" name="comentario">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Subir archivo</label>
-                        <input class="form-control" type="file" name="doc">
+                        <input class="form-control" type="file" name="archivo">
                     </div>
                 </div>
                 <div class="modal-footer">

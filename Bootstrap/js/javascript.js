@@ -151,8 +151,8 @@ function cargarHabitacionEditar(ambiente,habitacion){
     });
 }
 
-function modalSubirArchivo(idfile){
-    $('#idfile').val(idfile);
+function modalSubirArchivo(equipo){
+    $('#equipo').val(equipo);
     $('#modalArchivo').modal('show');
 }
 

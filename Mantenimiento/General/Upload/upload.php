@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../../conexion.php');
+require_once('../../../conexion.php');
 
 class upload extends conexion{
 
@@ -14,7 +14,7 @@ class upload extends conexion{
         $peso = $archivo["size"];
         $tipo = strtolower(pathinfo($nombre, PATHINFO_EXTENSION));
 
-        $carpeta = "../../General/Docs/";
+        $carpeta = "../Docs/";
         $nombre_nuevo_tipo = $nombre_nuevo . "." . $tipo;
         $url = $carpeta . $nombre_nuevo_tipo;
 

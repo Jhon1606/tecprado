@@ -98,7 +98,7 @@
                                 <input class="form-control" type="text" placeholder="Modelo..." name="modelo">
                             </div>
                             <div class="col">
-                                    <input class="form-control" type="text" placeholder="Marca..." name="marca">
+                                <input class="form-control" type="text" placeholder="Marca..." name="marca">
                             </div>
                         </div>
                     </div>

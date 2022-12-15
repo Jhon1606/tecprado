@@ -184,7 +184,7 @@
         require_once('delete.php');
     ?>
 
-<?php
+    <?php
         require_once('file.php');
     ?>
 

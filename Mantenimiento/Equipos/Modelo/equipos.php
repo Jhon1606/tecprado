@@ -36,22 +36,24 @@ class equipo extends conexion{
         }
     }
 
-    public function addArchivo($codigo,$nomdocumento,$comentario,$archivo){
-        $statement=$this->conexion->prepare("INSERT INTO equipos_doc (codigo, nomdocumento, comentario, archivo)
-                                            VALUES(:codigo, :nomdocumento, :comentario, archivo)");
+    public function addArchivo($equipo,$nomdocumento,$comentario,$archivo){
+        $statement=$this->conexion->prepare("INSERT INTO equipos_doc (equipo, nomdocumento, comentario, archivo)
+                                            VALUES(:equipo, :nomdocumento, :comentario, :archivo)");
         
         $modeloUpload = new upload();
         $nombreArchivo = $modeloUpload->subirArchivo('Archivo'. $nomdocumento, $archivo);
     
-        $statement->bindParam(':codigo',$codigo);
+        $statement->bindParam(':equipo',$equipo);
         $statement->bindParam(':nomdocumento',$nomdocumento);
         $statement->bindParam(':comentario', $comentario);
         $statement->bindParam(':archivo', $nombreArchivo);
     
         if($statement->execute()){
+            create_flash_message("Exitoso", "El archivo se subió correctamente","success");
             header('Location: ../Vista/index.php');
         }else{
-            header('Location: ../Vista/add.php');
+            create_flash_message("Error", "Error al subir archivo","error");
+            header('Location: ../Vista/index.php');
         }
     
     }
